@@ -2,242 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e403c154-9ca9-4e3c-a4e2-fdbcbd318cbf" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/ajax-loader.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/ajax-loader.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-18-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-18-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-36-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-36-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/action-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/action-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/alert-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/alert-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/arrow-d-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/arrow-d-l-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/arrow-d-l-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/arrow-d-r-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/arrow-d-r-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/arrow-d-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/arrow-l-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/arrow-l-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/arrow-r-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/arrow-r-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/arrow-u-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/arrow-u-l-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/arrow-u-l-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/arrow-u-r-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/arrow-u-r-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/arrow-u-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/audio-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/audio-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/back-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/back-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/bars-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/bars-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/bullets-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/bullets-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/calendar-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/calendar-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/camera-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/camera-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/carat-d-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/carat-d-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/carat-l-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/carat-l-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/carat-r-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/carat-r-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/carat-u-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/carat-u-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/check-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/check-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/clock-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/clock-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/cloud-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/cloud-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/comment-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/comment-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/delete-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/delete-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/edit-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/edit-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/eye-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/eye-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/forbidden-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/forbidden-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/forward-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/forward-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/gear-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/gear-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/grid-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/grid-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/heart-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/heart-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/home-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/home-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/info-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/info-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/location-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/location-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/lock-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/lock-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/mail-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/mail-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/minus-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/minus-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/navigation-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/navigation-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/phone-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/phone-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/plus-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/plus-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/power-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/power-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/recycle-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/recycle-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/refresh-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/refresh-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/search-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/search-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/shop-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/shop-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/star-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/star-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/tag-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/tag-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/user-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/user-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/video-black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-png/video-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/action-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/action-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/alert-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/alert-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/arrow-d-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/arrow-d-l-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/arrow-d-l-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/arrow-d-r-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/arrow-d-r-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/arrow-d-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/arrow-l-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/arrow-l-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/arrow-r-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/arrow-r-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/arrow-u-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/arrow-u-l-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/arrow-u-l-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/arrow-u-r-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/arrow-u-r-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/arrow-u-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/audio-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/audio-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/back-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/back-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/bars-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/bars-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/bullets-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/bullets-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/calendar-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/calendar-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/camera-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/camera-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/carat-d-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/carat-d-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/carat-l-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/carat-l-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/carat-r-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/carat-r-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/carat-u-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/carat-u-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/check-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/check-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/clock-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/clock-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/cloud-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/cloud-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/comment-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/comment-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/delete-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/delete-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/edit-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/edit-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/eye-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/eye-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/forbidden-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/forbidden-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/forward-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/forward-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/gear-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/gear-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/grid-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/grid-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/heart-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/heart-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/home-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/home-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/info-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/info-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/location-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/location-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/lock-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/lock-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/mail-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/mail-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/minus-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/minus-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/navigation-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/navigation-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/phone-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/phone-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/plus-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/plus-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/power-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/power-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/recycle-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/recycle-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/refresh-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/refresh-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/search-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/search-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/shop-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/shop-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/star-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/star-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/tag-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/tag-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/user-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/user-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/video-black.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/images/icons-svg/video-white.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/jquery.mobile-1.4.5.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/jquery.mobile-1.4.5.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/jquery.mobile-1.4.5.min.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/jquery.mobile.external-png-1.4.5.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/jquery.mobile.external-png-1.4.5.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/jquery.mobile.icons-1.4.5.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/jquery.mobile.icons-1.4.5.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/jquery.mobile.inline-png-1.4.5.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/jquery.mobile.inline-png-1.4.5.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/jquery.mobile.inline-svg-1.4.5.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/jquery.mobile.inline-svg-1.4.5.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/jquery.mobile.structure-1.4.5.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/jquery.mobile.structure-1.4.5.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/jquery.mobile.theme-1.4.5.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/lib/jquery.mobile.theme-1.4.5.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/mystyle.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/DAL.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/database.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/facade.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/global.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/lib/jquery-2.1.4.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/lib/jquery-2.1.4.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/lib/jquery.mobile-1.4.5.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/lib/jquery.mobile-1.4.5.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/lib/jquery.validate.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/util.js" />
-      <change beforePath="$PROJECT_DIR$/New Text Document.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -250,19 +15,19 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="670">
-              <caret line="85" column="21" lean-forward="true" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
+            <state relative-caret-position="633">
+              <caret line="201" column="22" lean-forward="false" selection-start-line="201" selection-start-column="22" selection-end-line="201" selection-end-column="22" />
               <folding>
                 <element signature="e#3181#3187#0" expanded="true" />
                 <element signature="e#4413#4419#0" expanded="true" />
                 <element signature="e#5651#5657#0" expanded="true" />
                 <element signature="e#6898#6904#0" expanded="true" />
                 <element signature="e#9281#9287#0" expanded="true" />
-                <element signature="e#11099#11105#0" expanded="true" />
+                <element signature="e#11089#11095#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -292,7 +57,7 @@
         <entry file="file://$PROJECT_DIR$/css/mystyle.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="420">
-              <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+              <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -340,7 +105,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="width" value="1296" />
     <option name="height" value="1398" />
@@ -364,7 +129,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -391,6 +155,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -436,22 +201,22 @@
       <option name="presentableId" value="Default" />
       <updated>1524019881369</updated>
       <workItem from="1524019882592" duration="10092000" />
+      <workItem from="1524065023574" duration="1906000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10092000" />
+    <option name="totallyTimeSpent" value="11998000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="2578" height="1408" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.102717824" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10341151" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32922825" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24980016" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -459,10 +224,11 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32922825" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -477,72 +243,63 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/New Text Document.txt">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#3181#3187#0" expanded="true" />
+            <element signature="e#4413#4419#0" expanded="true" />
+            <element signature="e#5651#5657#0" expanded="true" />
+            <element signature="e#6898#6904#0" expanded="true" />
+            <element signature="e#9281#9287#0" expanded="true" />
+            <element signature="e#11089#11095#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/global.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/mystyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/facade.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/New Text Document.txt" />
     <entry file="file://$PROJECT_DIR$/.gitattributes">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/img/1.JPG">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/avengers.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/avengers2010.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/avengersWiki.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/Black-Widow-icon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/Captain-America-icon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/Giant-Man-icon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/Hulk-icon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/Iron-Man-icon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/Thor-icon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/img/1.JPG" />
+    <entry file="file://$PROJECT_DIR$/img/avengers.jpg" />
+    <entry file="file://$PROJECT_DIR$/img/avengers2010.jpg" />
+    <entry file="file://$PROJECT_DIR$/img/avengersWiki.jpg" />
+    <entry file="file://$PROJECT_DIR$/img/Black-Widow-icon.png" />
+    <entry file="file://$PROJECT_DIR$/img/Captain-America-icon.png" />
+    <entry file="file://$PROJECT_DIR$/img/Giant-Man-icon.png" />
+    <entry file="file://$PROJECT_DIR$/img/Hulk-icon.png" />
+    <entry file="file://$PROJECT_DIR$/img/Iron-Man-icon.png" />
+    <entry file="file://$PROJECT_DIR$/img/Thor-icon.png" />
     <entry file="file://$PROJECT_DIR$/css/lib/images/ajax-loader.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -577,20 +334,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-17670">
           <caret line="3" column="2" lean-forward="false" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/img/icon_workout.svg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/img/icon_workout.svg" />
     <entry file="file://$PROJECT_DIR$/css/lib/jquery.mobile.icons-1.4.5.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -613,9 +364,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -623,7 +371,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -631,14 +378,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/mystyle.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
-          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+          <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -661,15 +407,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="670">
-          <caret line="85" column="21" lean-forward="true" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
+        <state relative-caret-position="633">
+          <caret line="201" column="22" lean-forward="false" selection-start-line="201" selection-start-column="22" selection-end-line="201" selection-end-column="22" />
           <folding>
             <element signature="e#3181#3187#0" expanded="true" />
             <element signature="e#4413#4419#0" expanded="true" />
             <element signature="e#5651#5657#0" expanded="true" />
             <element signature="e#6898#6904#0" expanded="true" />
             <element signature="e#9281#9287#0" expanded="true" />
-            <element signature="e#11099#11105#0" expanded="true" />
+            <element signature="e#11089#11095#0" expanded="true" />
           </folding>
         </state>
       </provider>
