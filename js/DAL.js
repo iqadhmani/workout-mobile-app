@@ -22,12 +22,12 @@ var Type ={
 var Exercise ={
     select: function (options, callback) {
         function txFunction(tx) {
-            var sql = "SELECT * FROM exercise typeId=?;";
+            var sql = "SELECT * FROM exercise WHERE typeId=?;";
 
             tx.executeSql(sql, options, callback, errorHandler);
         }
         function successTransaction() {
-            console.info("Success: selectAll transaction successful");
+            console.info("Success: select transaction successful");
         }
         db.transaction(txFunction, errorHandler, successTransaction);
     }
