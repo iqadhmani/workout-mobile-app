@@ -32,3 +32,17 @@ var Exercise ={
         db.transaction(txFunction, errorHandler, successTransaction);
     }
 };
+
+var CurrentExercise ={
+    select: function (options, callback) {
+        function txFunction(tx) {
+            var sql = "SELECT * FROM exercise WHERE id=?;";
+
+            tx.executeSql(sql, options, callback, errorHandler);
+        }
+        function successTransaction() {
+            console.info("Success: select transaction successful");
+        }
+        db.transaction(txFunction, errorHandler, successTransaction);
+    }
+};

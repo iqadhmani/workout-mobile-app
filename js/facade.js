@@ -48,15 +48,13 @@ function getExercises() {
     var options = [id];
     function callback(tx, results) {
         var htmlcode = "";
-
-
         for (var i = 0; i < results.rows.length; i++) {
             var row = results.rows[i];
 
             htmlcode += "<li><a data-role='button' data-row-id=" + row['id'] + " href='#'>" +
+                "<img src='"+row['startImage']+"' width='20%' >" +
                 "<h1> " + row['name'] + "</h1></a></li>";
         }
-
         var lv = $("#lvExercises");
         lv = lv.html(htmlcode);
         lv.listview("refresh"); //important
@@ -65,10 +63,33 @@ function getExercises() {
 
         function clickHandler() {
             localStorage.setItem("exerciseId", $(this).attr("data-row-id") );
-            $.mobile.changePage("#", {transition: 'fade'});
+            $.mobile.changePage("#pageExerciseCurrentDetail", {transition: 'fade'});
         }
-
-
     }
     Exercise.select(options, callback);
+}
+
+function getExerciseCuttentDeatil()
+{
+    var exerciseId = localStorage.getItem('exerciseId');
+    var options = [exerciseId];
+    function callback(tx,results) {
+        var row = results.rows[0];
+        var htmlcode = "";
+        if (row["endImage"] == null) {
+            htmlcode = "<h1>"+row['name']+"</h1>"
+                + "<img src='"+row["startImage"]+"' width='50%'>"
+                + "<p>"+row['description']+"</p>";
+        }
+        else{
+            htmlcode = "<h1>"+row['name']+"</h1>"
+                + "<img src='"+row["startImage"]+"' width='50%'>"
+                + "<img src='"+row["endImage"]+"' width='50%'>"
+                + "<p>"+row['description']+"</p>";
+        }
+
+        var lv = $("#lvExercisesDetail");
+        lv = lv.html(htmlcode);
+    }
+    CurrentExercise.select(options,callback);
 }

@@ -20,6 +20,10 @@ function pageExerciseCurrentType_show() {
     getExercises()
 }
 
+function pageExerciseCurrentDetail_show() {
+    getExerciseCuttentDeatil();
+}
+
 
 
 function init() {
@@ -28,6 +32,7 @@ function init() {
     $("#btnLogin").on("click", btnLogin_click);
     $("#pageExercise").on("pageshow", pageExercise_show);
     $("#pageExerciseCurrentType").on("pageshow", pageExerciseCurrentType_show);
+    $("#pageExerciseCurrentDetail").on("pageshow", pageExerciseCurrentDetail_show);
 
 }
 
@@ -47,8 +52,6 @@ function initDB() {
         console.error("Fatal: Error in initDB(). Can not proceed.");
     }
 }
-
-
 
 $(document).ready(function () {
     init();
