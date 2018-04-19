@@ -12,12 +12,17 @@ function btnLogin_click() {
     loginAccount();
 }
 
+function pageExercise_show() {
+    getTypes();
+}
+
 
 
 function init() {
     //home page handler
     $("#btnRegister").on("click", btnRegister_click);
     $("#btnLogin").on("click", btnLogin_click);
+    $("#pageExercise").on("pageshow", pageExercise_show)
     
 }
 
