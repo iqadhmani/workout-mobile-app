@@ -5,11 +5,31 @@
  *       Qiao Wang, 2018-04-18 : Created
  */
 function btnRegister_click() {
-    registerAccount();
+    var userId = localStorage.getItem("userId");
+    //userId = 1;
+    console.info("Hello " + userId);
+    if (userId == null || userId == undefined || userId == "")
+    {
+        $.mobile.changePage("#pageRegister", {transition: 'fade'});
+        registerAccount();
+    }
+    else {
+        $.mobile.changePage("#pageProfile", {transition: 'fade'});
+    }
 }
 
 function btnLogin_click() {
-    loginAccount();
+    var userId = localStorage.getItem("userId");
+    //userId = 1;
+    console.info("Hello " + userId);
+    if (userId == null || userId == undefined || userId == "")
+    {
+        $.mobile.changePage("#pageLogin", {transition: 'fade'});
+        loginAccount();
+    }
+    else {
+        $.mobile.changePage("#pageProfile", {transition: 'fade'});
+    }
 }
 
 function pageExercise_show() {
@@ -24,7 +44,13 @@ function pageExerciseCurrentDetail_show() {
     getExerciseCuttentDeatil();
 }
 
+function pageAllExercise_show() {
+    getAllExercise();
+}
 
+function planNameInput_show() {
+    showEnterPlanNameBox();
+}
 
 function init() {
     //home page handler
@@ -33,6 +59,9 @@ function init() {
     $("#pageExercise").on("pageshow", pageExercise_show);
     $("#pageExerciseCurrentType").on("pageshow", pageExerciseCurrentType_show);
     $("#pageExerciseCurrentDetail").on("pageshow", pageExerciseCurrentDetail_show);
+    $("#addPlanName").on("click", planNameInput_show);
+    $("#pageAddPlan").on("pageshow", pageAllExercise_show);
+    $("#btnAddAccount").on("click", btnAddAccount_click);
 
 }
 

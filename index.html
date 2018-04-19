@@ -59,8 +59,8 @@ email:      Qwang8308@conestogac.on.ca
                 <img src="img/im_workout_sample.jpg" alt="">
                 <!--buttons for user register or login-->
                 <div data-role="controlgroup">
-                    <a href="#pageRegister" id="btnRegister" name="btnRegister" data-role="button" data-theme="c">Register</a>
-                    <a href="#pageLogin" id="btnLogin" name="btnLogin" data-role="button" data-theme="b">Login</a>
+                    <a id="btnRegister" name="btnRegister" data-role="button" data-theme="c">Register</a>
+                    <a id="btnLogin" name="btnLogin" data-role="button" data-theme="b">Login</a>
                 </div>
             </section>
             <footer data-role="footer" data-theme="a" data-position="fixed">
@@ -85,10 +85,39 @@ email:      Qwang8308@conestogac.on.ca
                         </li>
                     </ul>
                 </div>
-
             </header>
             <section data-role="content">
                 <h1>exercise lookup table goes here</h1>
+                <a href="#pageAddPlan" id="showAddPlan" name="showAddPlan" data-role="button" data-icon="plus" data-iconpos="left"
+                   data-theme="a" class="ui-btn-active" data-transition="fade">Add Plan</a>
+            </section>
+            <footer data-role="footer" data-theme="a" data-position="fixed">
+                <h1> &copy;Qiao Wang, Ibrahim Qadamani</h1>
+            </footer>
+        </div>
+
+        <!--Add Plan page-->
+        <div id="pageAddPlan" data-role="page">
+            <header data-role="header" data-theme="b" data-position="fixed">
+                <h1> IQWorkout </h1>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="#pageHome" data-icon="home" data-theme="a" data-transition="fade">Home</a></li>
+                        <li><a href="#pageWorkout" data-icon="icon_workout" data-theme="a" data-transition="fade"
+                               class="ui-btn-active ui-state-persist">Workout</a></li>
+                        <li><a href="#pageExercise" data-icon="grid" data-theme="a" data-transition="fade">Exercise</a>
+                        </li>
+                        <li><a href="#pageProfile" data-icon="gear" data-theme="a" data-transition="fade">profile</a>
+                        </li>
+                        <li><a href="#pageAbout" data-icon="user" data-theme="a" data-transition="fade">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <section data-role="content">
+                <label for="txtPlanName">Plan Name</label>
+                <input type="text" id="txtPlanName" name="txtPlanName">
+                <ul id="lvAllExercise" data-role="listview" class="ui-listview-inset"></ul>
             </section>
             <footer data-role="footer" data-theme="a" data-position="fixed">
                 <h1> &copy;Qiao Wang, Ibrahim Qadamani</h1>
@@ -307,7 +336,8 @@ email:      Qwang8308@conestogac.on.ca
                         </li>
                         <li><a href="#pageProfile" data-icon="gear" data-theme="a" data-transition="fade">profile</a>
                         </li>
-                        <li><a href="#pageAbout" data-icon="user" data-theme="a" data-transition="fade" class="ui-btn-active ui-state-persist">About</a>
+                        <li><a href="#pageAbout" data-icon="user" data-theme="a" data-transition="fade"
+                               class="ui-btn-active ui-state-persist">About</a>
                         </li>
                     </ul>
                 </div>
