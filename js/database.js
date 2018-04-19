@@ -48,56 +48,21 @@ var DB = {
 
         function txFunction(tx) {
             var options = [];
-
-            //Drop two lookup tables  exercise and type in the beginning
-            //drop exercise table
-            console.info("Dropping Table exercise if exists...");
-            sql = "DROP TABLE IF EXISTS exercise;";
-            tx.executeSql(sql, options, successDrop, errorHandler);
-
+            //Create two lookup tables
+            //type table
             //drop type table
             console.info("Dropping Table type if exists...");
             sql = "DROP TABLE IF EXISTS type;";
             tx.executeSql(sql, options, successDrop, errorHandler);
-
-            //Create two lookup tables
-            //exercise table
-            console.info("Creating Table: exercise...");
-            sql = "CREATE TABLE IF NOT EXISTS exercise("
-                + "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
-                + "name VARCHAR(20) NOT NULL);";
-            tx.executeSql(sql, options, successCreate, errorHandler);
-
-            console.info("Inserting data to Table exercise...");
-            sql = ["INSERT INTO exercise(name) VALUES('Cable Rope Crunch');",
-                " INSERT INTO exercise(name) VALUES('Barbell Deadlift');",
-                " INSERT INTO exercise(name) VALUES('Dumbbell Alternate Bicep Curl');",
-                " INSERT INTO exercise(name) VALUES('Barbell Bench Press');",
-                " INSERT INTO exercise(name) VALUES('Barbell Behind The Back Wrist Curl');",
-                " INSERT INTO exercise(name) VALUES('Band Hip Lift');",
-                " INSERT INTO exercise(name) VALUES('Barbell Shoulder Press');",
-                " INSERT INTO exercise(name) VALUES('Cable Rope Triceps Pushdown');",
-                " INSERT INTO exercise(name) VALUES('Barbell Deep Squat');",
-                " INSERT INTO exercise(name) VALUES('Seated Calf Raise');",
-                " INSERT INTO exercise(name) VALUES('Treadmill Running');"
-            ];
-
-            for (var i = 0; i < sql.length; i++) {
-                tx.executeSql(sql[i], options, successInsert, errorHandler);
-
-            }
-
-            //exercise type table
+            //create type table
             console.info("Creating Table: type...");
             sql = "CREATE TABLE IF NOT EXISTS type("
                 + "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
                 + "name VARCHAR(20) NOT NULL);";
 
             tx.executeSql(sql, options, successCreate, errorHandler);
-
-            console.info("Inserting data to Table table...");
-            sql = [
-                "INSERT INTO type(name) VALUES('Abs');",
+            console.info("Inserting data to Table type...");
+            sql = ["INSERT INTO type(name) VALUES('Abs');",
                 "INSERT INTO type(name) VALUES('Back');",
                 "INSERT INTO type(name) VALUES('Biceps');",
                 "INSERT INTO type(name) VALUES('Chest');",
@@ -107,32 +72,98 @@ var DB = {
                 "INSERT INTO type(name) VALUES('Triceps');",
                 "INSERT INTO type(name) VALUES('Upper Legs');",
                 "INSERT INTO type(name) VALUES('Loweer Legs');",
-                "INSERT INTO type(name) VALUES('Cardio');"
-            ];
-
+                "INSERT INTO type(name) VALUES('Cardio');"];
             for (var i = 0; i < sql.length; i++) {
                 tx.executeSql(sql[i], options, successInsert, errorHandler);
-
             }
-            //===================================================================
 
-            console.info("Creating Other Tables:");
-            //table with foreign key snippet
-            //sql = "CREATE TABLE IF NOT EXISTS review(" +
-            //    "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
-            //    "businessName VARCHAR(30) NOT NULL," +
-            //    "typeId INTEGER NOT NULL," +
-            //    "reviewerEmail VARCHAR(30)," +
-            //    "reviewerComments TEXT," +
-            //    "reviewDate DATE," +
-            //    "hasRating VARCHAR(1)," +
-            //    "FOREIGN KEY(typeId) REFERENCES type(id));";
+            //exercise table
+            //drop exercise table
+            console.info("Dropping Table exercise if exists...");
+            sql = "DROP TABLE IF EXISTS exercise;";
+            tx.executeSql(sql, options, successDrop, errorHandler);
+            //create exercise table
+            console.info("Creating Table: exercise...");
+            sql = "CREATE TABLE IF NOT EXISTS exercise("
+                + "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
+                + "name VARCHAR(50) NOT NULL,"
+                + "typeId INTEGER NOT NULL,"
+                + "FOREIGN KEY(typeId) REFERENCES type(id));";
 
+            tx.executeSql(sql, options, successCreate, errorHandler);
+            console.info("Inserting data to Table exercise...");
+            sql = ["INSERT INTO exercise(name,typeId) VALUES('Cable Rope Crunch',1);",
+                " INSERT INTO exercise(name,typeId) VALUES('Barbell Deadlift',2);",
+                " INSERT INTO exercise(name,typeId) VALUES('Dumbbell Alternate Bicep Curl',3);",
+                " INSERT INTO exercise(name,typeId) VALUES('Barbell Bench Press',4);",
+                " INSERT INTO exercise(name,typeId) VALUES('Barbell Behind The Back Wrist Curl',5);",
+                " INSERT INTO exercise(name,typeId) VALUES('Band Hip Lift',6);",
+                " INSERT INTO exercise(name,typeId) VALUES('Barbell Shoulder Press',7);",
+                " INSERT INTO exercise(name,typeId) VALUES('Cable Rope Triceps Pushdown',8);",
+                " INSERT INTO exercise(name,typeId) VALUES('Barbell Deep Squat',9);",
+                " INSERT INTO exercise(name,typeId) VALUES('Seated Calf Raise',10);",
+                " INSERT INTO exercise(name,typeId) VALUES('Treadmill Running',11);"];
+            for (var i = 0; i < sql.length; i++) {
+                tx.executeSql(sql[i], options, successInsert, errorHandler);
+            }
 
+            //create user table
+            sql = "CREATE TABLE IF NOT EXISTS user("
+                + "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
+                + "name VARCHAR(30) NOT NULL,"
+                + "email VARCHAR(50) NOT NULL,"
+                + "phone VARCHAR(10),"
+                + "password VARCHAR(20));";
+            tx.executeSql(sql, options, successCreate, errorHandler);
 
+            //create body stats table
+            sql = "CREATE TABLE IF NOT EXISTS body_stats("
+                + "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
+                + "age INTEGER(10) NOT NULL,"
+                + "weight INTEGER(10),"
+                + "height INTEGER(10),"
+                + "body_fat INTEGER(10),"
+                + "waist INTEGER(10),"
+                + "chest INTEGER(10),"
+                + "arm INTEGER(10),"
+                + "shoulder INTEGER(10),"
+                + "hip INTEGER(10),"
+                + "foream INTEGER(10),"
+                + "thigh INTEGER(10),"
+                + "calve INTEGER(10),"
+                + "neck INTEGER(10),"
+                + "userId INTEGER NOT NULL,"
+                + "FOREIGN KEY(userId) REFERENCES user(id));";
+            tx.executeSql(sql, options, successCreate, errorHandler);
 
+            //create plan table
+            sql = "CREATE TABLE IF NOT EXISTS plan("
+                + "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
+                + "date date NOT NULL,"
+                + "name VARCHAR(30) NOT NULL,"
+                + "userId INTEGER NOT NULL,"
+                + "FOREIGN KEY(userId) REFERENCES user(id));";
+            tx.executeSql(sql, options, successCreate, errorHandler);
 
+            //create action table
+            sql = "CREATE TABLE IF NOT EXISTS action("
+                + "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
+                + "planId INTEGER,"
+                + "exerciseId INTEGER,"
+                + "FOREIGN KEY(planId) REFERENCES plan(id),"
+                + "FOREIGN KEY(exerciseId) REFERENCES exercise(id));";
+            tx.executeSql(sql, options, successCreate, errorHandler);
 
+            //create detail table
+            sql = "CREATE TABLE IF NOT EXISTS detail("
+                + "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
+                + "date date NOT NULL,"
+                + "weight INTEGER(10),"
+                + "rep INTEGER(10),"
+                + "timeLength INTEGER(10),"
+                + "actionId INTEGER,"
+                + "FOREIGN KEY(actionId) REFERENCES action(id));";
+            tx.executeSql(sql, options, successCreate, errorHandler);
         }
 
         db.transaction(txFunction, errorHandler, successTransaction);
