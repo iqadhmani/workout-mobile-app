@@ -27,7 +27,7 @@ function getTypes() {
                 "<h1> " + row['name'] + "</h1></a></li>";
         }
 
-        var lv = $("#lvtype");
+        var lv = $("#lvType");
         lv = lv.html(htmlcode);
         lv.listview("refresh"); //important
 
