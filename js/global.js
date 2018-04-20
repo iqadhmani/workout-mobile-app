@@ -5,11 +5,31 @@
  *       Qiao Wang, 2018-04-18 : Created
  */
 function btnRegister_click() {
-    registerAccount();
+    var userId = localStorage.getItem("userId");
+    //userId = 1;
+    console.info("Hello " + userId);
+    if (userId == null || userId == undefined || userId == "")
+    {
+        $.mobile.changePage("#pageRegister", {transition: 'fade'});
+        registerAccount();
+    }
+    else {
+        $.mobile.changePage("#pageProfile", {transition: 'fade'});
+    }
 }
 
 function btnLogin_click() {
-    loginAccount();
+    var userId = localStorage.getItem("userId");
+    //userId = 1;
+    console.info("Hello " + userId);
+    if (userId == null || userId == undefined || userId == "")
+    {
+        $.mobile.changePage("#pageLogin", {transition: 'fade'});
+        loginAccount();
+    }
+    else {
+        $.mobile.changePage("#pageProfile", {transition: 'fade'});
+    }
 }
 
 function pageExercise_show() {
@@ -21,10 +41,31 @@ function pageExerciseCurrentType_show() {
 }
 
 function pageExerciseCurrentDetail_show() {
-    getExerciseCuttentDeatil();
+    getExerciseCurrentDetail();
 }
 
+function pageAllExercise_show() {
+    getAllExercise();
+}
 
+function btnshowAddNewPlan_click() {
+    showAddNewPlan();
+}
+function pageWorkout_show() {
+    displayAllPlans();
+}
+
+function btnAddPlan_click() {
+    addNewPlan();
+}
+
+function pagePlan_show() {
+    showOnePlan();
+}
+
+function pageActionDetail_show() {
+    showActionDetail();
+}
 
 function init() {
     //home page handler
@@ -33,6 +74,17 @@ function init() {
     $("#pageExercise").on("pageshow", pageExercise_show);
     $("#pageExerciseCurrentType").on("pageshow", pageExerciseCurrentType_show);
     $("#pageExerciseCurrentDetail").on("pageshow", pageExerciseCurrentDetail_show);
+    $("#pageAllExercise").on("pageshow", pageAllExercise_show);
+    $("#btnshowAddNewPlan").on("click", btnshowAddNewPlan_click);
+    $("#pageWorkout").on("pageshow", pageWorkout_show);
+    $("#btnAddPlan").on("click", btnAddPlan_click);
+    $("#pagePlan").on("pageshow", pagePlan_show);
+    $("#pageActionDetail").on("pageshow", pageActionDetail_show);
+
+
+    
+    //havent finish
+    //$("#btnAddAccount").on("click", btnAddAccount_click);
 
 }
 

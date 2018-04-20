@@ -48,7 +48,6 @@ email:      Qwang8308@conestogac.on.ca
                         </li>
                     </ul>
                 </div>
-
             </header>
             <section>
                 <h1>Final Project</h1>
@@ -59,8 +58,8 @@ email:      Qwang8308@conestogac.on.ca
                 <img src="img/im_workout_sample.jpg" alt="">
                 <!--buttons for user register or login-->
                 <div data-role="controlgroup">
-                    <a href="#pageRegister" id="btnRegister" name="btnRegister" data-role="button" data-theme="c">Register</a>
-                    <a href="#pageLogin" id="btnLogin" name="btnLogin" data-role="button" data-theme="b">Login</a>
+                    <a id="btnRegister" name="btnRegister" data-role="button" data-theme="c">Register</a>
+                    <a id="btnLogin" name="btnLogin" data-role="button" data-theme="b">Login</a>
                 </div>
             </section>
             <footer data-role="footer" data-theme="a" data-position="fixed">
@@ -85,10 +84,112 @@ email:      Qwang8308@conestogac.on.ca
                         </li>
                     </ul>
                 </div>
-
             </header>
             <section data-role="content">
                 <h1>exercise lookup table goes here</h1>
+                <ul id="lvAllPlans" data-role="listview" class="ui-listview-inset"></ul>
+                <a id="btnshowAddNewPlan" name="btnshowAddNewPlan" data-role="button" data-icon="plus" data-iconpos="left"
+                   data-theme="a" class="ui-btn-active" data-transition="fade">Add Plan</a>
+                <div id="enterPlanName" hidden>
+                    <label for="txtPlanName">Plan Name</label>
+                    <input type="text" id="txtPlanName" name="txtPlanName">
+                    <button type="button" id="btnAddPlan" name="btnAddPlan" data-icon="plus" data-iconpos="left"
+                            data-theme="a" data-inline="true" class="ui-btn-active">Add
+                    </button>
+                </div>
+            </section>
+            <footer data-role="footer" data-theme="a" data-position="fixed">
+                <h1> &copy;Qiao Wang, Ibrahim Qadamani</h1>
+            </footer>
+        </div>
+
+        <!--one plan page-->
+        <div id="pagePlan" data-role="page">
+            <header data-role="header" data-theme="b" data-position="fixed">
+                <h1> IQWorkout </h1>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="#pageHome" data-icon="home" data-theme="a" data-transition="fade">Home</a></li>
+                        <li><a href="#pageWorkout" data-icon="icon_workout" data-theme="a" data-transition="fade"
+                               class="ui-btn-active ui-state-persist">Workout</a></li>
+                        <li><a href="#pageExercise" data-icon="grid" data-theme="a" data-transition="fade">Exercise</a>
+                        </li>
+                        <li><a href="#pageProfile" data-icon="gear" data-theme="a" data-transition="fade">profile</a>
+                        </li>
+                        <li><a href="#pageAbout" data-icon="user" data-theme="a" data-transition="fade">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <section data-role="content">
+                <ul id="lvOnePlan" data-role="listview" class="ui-listview-inset"></ul>
+                <a href="#pageAllExercise" data-role="button" data-icon="plus" data-iconpos="left" data-theme="a"
+                   class="ui-btn-active" data-transition="fade" data-inline="false">Add Action</a>
+
+            </section>
+            <footer data-role="footer" data-theme="a" data-position="fixed">
+                <h1> &copy;Qiao Wang, Ibrahim Qadamani</h1>
+            </footer>
+        </div>
+
+        <!--one action detail page-->
+        <div id="pageActionDetail" data-role="page">
+            <header data-role="header" data-theme="b" data-position="fixed">
+                <h1> IQWorkout </h1>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="#pageHome" data-icon="home" data-theme="a" data-transition="fade">Home</a></li>
+                        <li><a href="#pageWorkout" data-icon="icon_workout" data-theme="a" data-transition="fade"
+                               class="ui-btn-active ui-state-persist">Workout</a></li>
+                        <li><a href="#pageExercise" data-icon="grid" data-theme="a" data-transition="fade">Exercise</a>
+                        </li>
+                        <li><a href="#pageProfile" data-icon="gear" data-theme="a" data-transition="fade">profile</a>
+                        </li>
+                        <li><a href="#pageAbout" data-icon="user" data-theme="a" data-transition="fade">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <section data-role="content">
+                <ul id="lvActionDetail" data-role="listview" class="ui-listview-inset" style="width: 50%; float: left"></ul>
+                <div style="width:50%; float: left">
+                    <label for="txtSet">Set</label>
+                    <input type="number" id="txtSet" name="txtSet">
+                    <label for="txtWeight">Weight</label>
+                    <input type="number" id="txtWeight" name="txtWeight">
+                    <label for="txtRep">Rep</label>
+                    <input type="number" id="txtRep" name="txtRep">
+                    <a id="btnSave" name="btnSave" data-role="button"  data-icon="plus" data-theme="a" class="ui-btn-active" data-transition="fade" data-inline="true">Save</a>
+                    <a id="btnBack" name="btnBack" data-role="button" data-icon="back" data-iconpos="left" data-theme="a" data-transition="fade" data-inline="true" data-rel="back">Cancel</a>
+
+                </div>
+
+            </section>
+            <footer data-role="footer" data-theme="a" data-position="fixed">
+                <h1> &copy;Qiao Wang, Ibrahim Qadamani</h1>
+            </footer>
+        </div>
+
+        <!--All exercise page-->
+        <div id="pageAllExercise" data-role="page">
+            <header data-role="header" data-theme="b" data-position="fixed">
+                <h1> IQWorkout </h1>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="#pageHome" data-icon="home" data-theme="a" data-transition="fade">Home</a></li>
+                        <li><a href="#pageWorkout" data-icon="icon_workout" data-theme="a" data-transition="fade"
+                               class="ui-btn-active ui-state-persist">Workout</a></li>
+                        <li><a href="#pageExercise" data-icon="grid" data-theme="a" data-transition="fade">Exercise</a>
+                        </li>
+                        <li><a href="#pageProfile" data-icon="gear" data-theme="a" data-transition="fade">profile</a>
+                        </li>
+                        <li><a href="#pageAbout" data-icon="user" data-theme="a" data-transition="fade">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <section data-role="content">
+                <ul id="lvAllExercise" data-role="listview" class="ui-listview-inset"></ul>
             </section>
             <footer data-role="footer" data-theme="a" data-position="fixed">
                 <h1> &copy;Qiao Wang, Ibrahim Qadamani</h1>
@@ -307,7 +408,8 @@ email:      Qwang8308@conestogac.on.ca
                         </li>
                         <li><a href="#pageProfile" data-icon="gear" data-theme="a" data-transition="fade">profile</a>
                         </li>
-                        <li><a href="#pageAbout" data-icon="user" data-theme="a" data-transition="fade" class="ui-btn-active ui-state-persist">About</a>
+                        <li><a href="#pageAbout" data-icon="user" data-theme="a" data-transition="fade"
+                               class="ui-btn-active ui-state-persist">About</a>
                         </li>
                     </ul>
                 </div>

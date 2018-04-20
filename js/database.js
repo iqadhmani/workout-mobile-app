@@ -170,10 +170,25 @@ var DB = {
                 + "actionId INTEGER,"
                 + "FOREIGN KEY(actionId) REFERENCES action(id));";
             tx.executeSql(sql, options, successCreate, errorHandler);
+
+
+            // //drop view table
+            // console.info("Dropping View action_exercise if exists...");
+            // sql = "DROP View IF EXISTS action_exercise;";
+            // tx.executeSql(sql, options, successDrop, errorHandler);
+            // //create View table
+            // sql = "CREATE VIEW IF NOT EXISTS action_exercise AS"
+            //     +" SELECT exercise.id, exercise.startImage, exercise.name,action.id"
+            //     +" FROM action, exercise"
+            //     +" WHERE action.exerciseId = exercise.id";
+            // tx.executeSql(sql, options, successCreate, errorHandler)
+
         }
 
         db.transaction(txFunction, errorHandler, successTransaction);
     },
+
+
     dropTables: function () {
         function successDrop() {
             console.info("Success: Dropping Table successful. ");
