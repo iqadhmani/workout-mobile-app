@@ -1,0 +1,18 @@
+/*custom header pageWorkout icon*/
+.ui-icon-icon_workout:after {
+    background-image: url("../img/icon_workout.png");
+    background-size: 18px 18px;
+}
+
+form{
+    width: 90%;
+    margin: auto;
+    display: block;
+}
+
+
+/*pagehome img style*/
+#pageHome img{
+    display: block;
+    margin: auto;
+}
