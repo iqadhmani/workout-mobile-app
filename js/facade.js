@@ -195,6 +195,7 @@ function displayAllPlans() {
     Plan.selectAll(options, callback);
 }
 
+<<<<<<< HEAD
 function showOnePlan() {
     var id = localStorage.getItem("planId");
     var options = [id];
@@ -243,3 +244,21 @@ function showActionDetail() {
     }
     Action.select(options,callback);
 }
+=======
+function getAllExercise() {
+    var options =[];
+    function callback(tx,results) {
+        var htmlcode = "";
+        for (var i = 0; i < results.rows.length; i++) {
+            var row = results.rows[i];
+            htmlcode += "<li><a data-role='button' data-row-id=" + row['id'] + " href='#' data-icon='plus'>" +
+                "<img src='"+row['startImage']+"' width='20%' >" +
+                "<h1> " + row['name'] + "</h1></a></li>";
+        }
+        var lv = $("#lvAllExercise");
+        lv = lv.html(htmlcode);
+        lv.listview("refresh");
+    }
+    Exercise.selectAll(options,callback);
+}
+>>>>>>> 062465f9bd2384962284fd8c265f9a075bff86fd

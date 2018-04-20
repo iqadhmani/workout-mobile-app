@@ -48,6 +48,7 @@ function pageAllExercise_show() {
     getAllExercise();
 }
 
+<<<<<<< HEAD
 function btnshowAddNewPlan_click() {
     showAddNewPlan();
 }
@@ -65,6 +66,10 @@ function pagePlan_show() {
 
 function pageActionDetail_show() {
     showActionDetail();
+=======
+function planNameInput_show() {
+    showEnterPlanNameBox();
+>>>>>>> 062465f9bd2384962284fd8c265f9a075bff86fd
 }
 
 function init() {
@@ -74,6 +79,7 @@ function init() {
     $("#pageExercise").on("pageshow", pageExercise_show);
     $("#pageExerciseCurrentType").on("pageshow", pageExerciseCurrentType_show);
     $("#pageExerciseCurrentDetail").on("pageshow", pageExerciseCurrentDetail_show);
+<<<<<<< HEAD
     $("#pageAllExercise").on("pageshow", pageAllExercise_show);
     $("#btnshowAddNewPlan").on("click", btnshowAddNewPlan_click);
     $("#pageWorkout").on("pageshow", pageWorkout_show);
@@ -85,6 +91,11 @@ function init() {
     
     //havent finish
     //$("#btnAddAccount").on("click", btnAddAccount_click);
+=======
+    $("#addPlanName").on("click", planNameInput_show);
+    $("#pageAddPlan").on("pageshow", pageAllExercise_show);
+    $("#btnAddAccount").on("click", btnAddAccount_click);
+>>>>>>> 062465f9bd2384962284fd8c265f9a075bff86fd
 
 }
 
