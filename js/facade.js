@@ -236,10 +236,22 @@ function showActionDetail() {
             htmlcode = "<img src='" + row['startImage'] + "' width='50%' style=''>"+
                 "<img src='" + row['endImage'] + "' width='50%'>";
         }
+        htmlcode += "<div id='divDetail'>" +
+            "<div id='divSet'><label for='txtSet'>Set</label>" +
+            "<input type='number' id='txtSet' name='txtSet' size='10'></div>" +
+            "<div id='divWeight'><label for='txtWeight'>Weight (lb)</label>" +
+            "<input type='number' id='txtWeight' name='txtWeight' size='10'></div>" +
+            "<div id='divRep'><label for='txtRep'>Rep</label>" +
+            "<input type='number' id='txtRep' name='txtRep' size='10'></div>"+
+            "</div>";
 
         var lv = $("#lvActionDetail");
         lv = lv.html(htmlcode);
         lv.listview("refresh");
     }
     Action.select(options,callback);
+}
+
+function addNewSet() {
+    
 }

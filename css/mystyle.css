@@ -16,3 +16,14 @@ form{
     display: block;
     margin: auto;
 }
+
+/*one action detail page*/
+#divSet, #divWeight,#divRep{
+    width: 30%;
+    float: left;
+}
+
+/*#divDetail div{*/
+    /*width: 30%;*/
+    /*float: left;*/
+/*}*/

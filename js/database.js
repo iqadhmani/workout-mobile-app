@@ -164,24 +164,13 @@ var DB = {
             sql = "CREATE TABLE IF NOT EXISTS detail("
                 + "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
                 + "date date NOT NULL,"
+                + "set INTEGER(10),"
                 + "weight INTEGER(10),"
                 + "rep INTEGER(10),"
                 + "timeLength INTEGER(10),"
                 + "actionId INTEGER,"
                 + "FOREIGN KEY(actionId) REFERENCES action(id));";
             tx.executeSql(sql, options, successCreate, errorHandler);
-
-
-            // //drop view table
-            // console.info("Dropping View action_exercise if exists...");
-            // sql = "DROP View IF EXISTS action_exercise;";
-            // tx.executeSql(sql, options, successDrop, errorHandler);
-            // //create View table
-            // sql = "CREATE VIEW IF NOT EXISTS action_exercise AS"
-            //     +" SELECT exercise.id, exercise.startImage, exercise.name,action.id"
-            //     +" FROM action, exercise"
-            //     +" WHERE action.exerciseId = exercise.id";
-            // tx.executeSql(sql, options, successCreate, errorHandler)
 
         }
 

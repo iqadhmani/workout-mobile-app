@@ -67,6 +67,10 @@ function pageActionDetail_show() {
     showActionDetail();
 }
 
+function btnAddSet_click() {
+    addNewSet();
+}
+
 function init() {
     //home page handler
     $("#btnRegister").on("click", btnRegister_click);
@@ -80,7 +84,8 @@ function init() {
     $("#btnAddPlan").on("click", btnAddPlan_click);
     $("#pagePlan").on("pageshow", pagePlan_show);
     $("#pageActionDetail").on("pageshow", pageActionDetail_show);
-
+    $("#btnAddSet").on("click", btnAddSet_click);
+    
 
     
     //havent finish
