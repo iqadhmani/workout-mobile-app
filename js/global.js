@@ -67,8 +67,41 @@ function pageActionDetail_show() {
     showActionDetail();
 }
 
-function btnAddSet_click() {
-    addNewSet();
+function btnSaveCurrent_click() {
+    saveCurrentRecord();
+}
+function pageHistory_show() {
+    showAllHistory();
+}
+function pageEditDetail_show() {
+    EditOneDetail();
+}
+
+function btnDeleteDetail_click() {
+    deleteOneDetail();
+}
+
+function btnDeleteAction_click() {
+    deleteCurrentAction();
+}
+
+function btnEditCurrentPlan_click() {
+    EditCurrentPlan();
+}
+
+function btnUpdateCurrentPlan_click() {
+    updateCurrentPlan();
+}
+
+function btnDeleteCurrentPlan_click() {
+    deleteCurrentPlan();
+}
+
+function btnUpdateDetail_click() {
+    updateCurrentDetail();
+}
+function btnClearDatabase_click(){
+    clearDatabase();
 }
 
 function init() {
@@ -84,10 +117,19 @@ function init() {
     $("#btnAddPlan").on("click", btnAddPlan_click);
     $("#pagePlan").on("pageshow", pagePlan_show);
     $("#pageActionDetail").on("pageshow", pageActionDetail_show);
-    $("#btnAddSet").on("click", btnAddSet_click);
-    
+    $("#btnSaveCurrent").on("click", btnSaveCurrent_click);
+    $("#pageHistory").on("pageshow", pageHistory_show);
+    $("#pageEditDetail").on("pageshow", pageEditDetail_show);
+    $("#btnDeleteDetail").on("click", btnDeleteDetail_click);
+    $("#btnDeleteAction").on("click", btnDeleteAction_click);
+    $("#btnEditCurrentPlan").on("click", btnEditCurrentPlan_click);
+    $("#btnUpdateCurrentPlan").on("click", btnUpdateCurrentPlan_click);
+    $("#btnDeleteCurrentPlan").on("click", btnDeleteCurrentPlan_click);
+    $("#btnUpdateDetail").on("click", btnUpdateDetail_click);
+    $("#btnClearDatabase").on("click", btnClearDatabase_click);
 
     
+
     //havent finish
     //$("#btnAddAccount").on("click", btnAddAccount_click);
 

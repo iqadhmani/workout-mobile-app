@@ -164,7 +164,6 @@ var DB = {
             sql = "CREATE TABLE IF NOT EXISTS detail("
                 + "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
                 + "date date NOT NULL,"
-                + "set INTEGER(10),"
                 + "weight INTEGER(10),"
                 + "rep INTEGER(10),"
                 + "timeLength INTEGER(10),"
@@ -192,11 +191,18 @@ var DB = {
             //repeat for other tables
             //=======================
             console.info("Dropping Table: table");
-            var sql = "DROP TABLE IF EXISTS table;";
+            var sql = ["DROP TABLE IF EXISTS type;",
+                "DROP TABLE IF EXISTS detail;",
+                "DROP TABLE IF EXISTS action;",
+                "DROP TABLE IF EXISTS plan;",
+                "DROP TABLE IF EXISTS exercise;",
+                "DROP TABLE IF EXISTS user;",
+                "DROP TABLE IF EXISTS body_stats;"
+            ];
 
-            tx.executeSql(sql, options, successDrop, errorHandler);
-            //=====================================================
-
+            for (var i = 0; i < sql.length; i++) {
+                tx.executeSql(sql[i], options, successDrop, errorHandler);
+            }
         }
 
         db.transaction(txFunction, errorHandler, successTransaction);

@@ -74,7 +74,7 @@ var Plan = {
     },
     update: function (options, callback) {
         function txFunction(tx) {
-            var sql = "UPDATE Plan SET field1=?, field2=?, field3=?, field4=? WHERE id=?;";
+            var sql = "UPDATE Plan SET name=?, date=? WHERE id=?;";
             tx.executeSql(sql, options, callback, errorHandler);
         }
 
@@ -171,9 +171,9 @@ var Action = {
 
         db.transaction(txFunction, errorHandler, successTransaction);
     },
-    selectActionExercise: function (options, callback) {
+    selectPlanActionExercise: function (options, callback) {
         function txFunction(tx) {
-            var sql = "SELECT action.id AS id, exercise.name AS name, exercise.startImage AS startImage FROM action Join exercise ON action.exerciseId = exercise.id WHERE planId=?;";
+            var sql = "SELECT action.id AS id, exercise.name AS name, exercise.startImage AS startImage, plan.name AS planName FROM plan JOIN action ON plan.id = action.planId JOIN exercise ON action.exerciseId = exercise.id WHERE planId=?;";
             tx.executeSql(sql, options, callback, errorHandler);
         }
 
@@ -199,7 +199,7 @@ var Action = {
 var Detail = {
     insert: function (options, callback) {
         function txFunction(tx) {
-            var sql = "INSERT INTO Detail(field1, field2, field3, field4) VALUES(?,?,?,?);";
+            var sql = "INSERT INTO Detail(date, weight, rep, timeLength,actionId) VALUES(?,?,?,?,?);";
             tx.executeSql(sql, options, callback, errorHandler);
         }
 
@@ -211,7 +211,7 @@ var Detail = {
     },
     update: function (options, callback) {
         function txFunction(tx) {
-            var sql = "UPDATE Detail SET field1=?, field2=?, field3=?, field4=? WHERE id=?;";
+            var sql = "UPDATE Detail SET date=?, weight=?, rep=?, timeLength=?, actionId=? WHERE id=?;";
             tx.executeSql(sql, options, callback, errorHandler);
         }
 
@@ -233,9 +233,9 @@ var Detail = {
 
         db.transaction(txFunction, errorHandler, successTransaction);
     },
-    select: function (options, callback) {
+    selectByActionId: function (options, callback) {
         function txFunction(tx) {
-            var sql = "SELECT * FROM Detail WHERE id=?;";
+            var sql = "SELECT * FROM Detail WHERE actionId=?;";
             tx.executeSql(sql, options, callback, errorHandler);
         }
 
@@ -245,9 +245,9 @@ var Detail = {
 
         db.transaction(txFunction, errorHandler, successTransaction);
     },
-    selectDetail_Action_Exercise: function (options, callback) {
+    select: function (options, callback) {
         function txFunction(tx) {
-            var sql = "SELECT exercise.startImage AS startImage FROM detail JOIN action ON detail.actionId = action.id JOIN exercise ON action.exerciseId = exercise.id WHERE actionId=?;";
+            var sql = "SELECT * FROM detail WHERE id=?;";
             tx.executeSql(sql, options, callback, errorHandler);
         }
 
@@ -270,4 +270,3 @@ var Detail = {
         db.transaction(txFunction, errorHandler, successTransaction);
     }
 };
-

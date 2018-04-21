@@ -200,7 +200,9 @@ function showOnePlan() {
     var options = [id];
 
     function callback(tx, results) {
+
         var htmlcode = "";
+        htmlcode = "<h1>" + results.rows[0]['planName'] + "</h1>";
         for (var i = 0; i < results.rows.length; i++) {
             var row = results.rows[i];
             htmlcode += "<li><a data-role='button' data-row-id=" + row['id'] + " href='#'>" +
@@ -219,8 +221,54 @@ function showOnePlan() {
             $.mobile.changePage("#pageActionDetail", {transition: 'fade'});
         }
     }
-    Action.selectActionExercise(options, callback);
+
+    Action.selectPlanActionExercise(options, callback);
 }
+
+function EditCurrentPlan() {
+    $("#divEditPlan").show();
+    $("#btnUpdateCurrentPlan").show();
+
+    var id = localStorage.getItem("planId");
+    var options = [id];
+
+    function callback(tx, results) {
+        var row = results.rows[0];
+        $("#txtPlanNameModify").val(row['name']);
+        $("#txtPlanDateModify").val(row['date']);
+    }
+
+    Plan.select(options, callback);
+
+}
+
+function updateCurrentPlan() {
+    var id = localStorage.getItem("planId");
+    var planName = $("#txtPlanNameModify").val();
+    var planDate = $("#txtPlanDateModify").val();
+    var options = [];
+    options = [planName, planDate, id];
+
+    function callback() {
+        alert("update successfully.");
+    }
+
+    Plan.update(options, callback);
+    location.reload();
+}
+
+function deleteCurrentPlan() {
+    var id = localStorage.getItem("planId");
+    var options = [id];
+
+    function callback() {
+        alert("This plan has been removed.");
+    }
+
+    Plan.delete(options, callback);
+    $.mobile.changePage("#pageWorkout", {transition: 'fade'});
+}
+
 
 function showActionDetail() {
     var id = localStorage.getItem("actionId");
@@ -229,29 +277,213 @@ function showActionDetail() {
     function callback(tx, results) {
         var htmlcode = "";
         var row = results.rows[0];
+
         if (row['endImage'] == null) {
             htmlcode = "<img src='" + row['startImage'] + "' width='50%'>";
+            $("#divCardioDetail").show();
+            $("#divStrengthDetail").hide();
         }
-        else{
-            htmlcode = "<img src='" + row['startImage'] + "' width='50%' style=''>"+
+        else {
+            htmlcode = "<img src='" + row['startImage'] + "' width='50%' style=''>" +
                 "<img src='" + row['endImage'] + "' width='50%'>";
+            $("#divStrengthDetail").show();
+            $("#divCardioDetail").hide();
         }
-        htmlcode += "<div id='divDetail'>" +
-            "<div id='divSet'><label for='txtSet'>Set</label>" +
-            "<input type='number' id='txtSet' name='txtSet' size='10'></div>" +
-            "<div id='divWeight'><label for='txtWeight'>Weight (lb)</label>" +
-            "<input type='number' id='txtWeight' name='txtWeight' size='10'></div>" +
-            "<div id='divRep'><label for='txtRep'>Rep</label>" +
-            "<input type='number' id='txtRep' name='txtRep' size='10'></div>"+
-            "</div>";
 
         var lv = $("#lvActionDetail");
         lv = lv.html(htmlcode);
         lv.listview("refresh");
     }
-    Action.select(options,callback);
+
+    Action.select(options, callback);
+
+    var setId = 1;
+    $("#txtSet").val(setId);
 }
 
-function addNewSet() {
-    
+function saveCurrentRecord() {
+    var set = $("#txtSet").val();
+    var weight = $("#txtWeight").val();
+    var rep = $("#txtRep").val();
+    var timeLength = $("#txtTimeLength").val();
+    var actionId = localStorage.getItem("actionId");
+    var date = $("#exerciseDate").val();
+    var options = [];
+    if (timeLength == "") {
+        options = [date, weight, rep, null, actionId];
+    }
+    else {
+        options = [date, null, null, timeLength, actionId];
+    }
+
+    function callback() {
+        alert("Record has been saved");
+        console.info("Success: Record inserted successfully");
+    }
+
+    Detail.insert(options, callback);
+
+
+    //reset the inout box
+    set++;
+    $("#txtSet").val(set);
+    $("#txtTimeLength").val("");
+    $("#txtRep").val("");
+    $("#txtWeight").val("");
+    $("#exerciseDate").val("");
 }
+
+function ds() {
+    var htmlcode = "";
+    var currectDetail = $("#divCurrentDetail");
+
+    htmlcode = currectDetail.html() + "<p>" +
+        "set: " + set + " &nbsp " +
+        "weight: " + weight + "lb" + " &nbsp " +
+        "rep: " + rep + " &nbsp " +
+        "<a data-type='button' id='btnEditDetial' href='#' data-row-id='" + set + "'>Edit</a>" +
+        "</p>";
+    currectDetail.html(htmlcode);
+
+    $("#divCurrentDetail a").on("click", clickHandler);
+
+    function clickHandler() {
+        localStorage.setItem("setId", $(this).attr("data-row-id"));
+        $("#detailModify").show();
+        var setId = localStorage.getItem("setId");
+        var editDetail = localStorage.getItem("set:" + setId).split(",");
+        $("#txtSetModify").val(setId);
+        $("#txtWeightModify").val(editDetail[0]);
+        $("#txtRepmodify").val(editDetail[1]);
+    }
+
+    set++;
+    $("#txtSet").val(set);
+}
+
+function showAllHistory() {
+    var id = localStorage.getItem("actionId");
+    var options = [id];
+
+    function callback(tx, results) {
+        var htmlcode = "";
+        for (var i = 0; i < results.rows.length; i++) {
+            var row = results.rows[i];
+            if (row['timeLength'] == null) {
+                htmlcode += "<li><a data-role='button'  data-row-id=" + row['id'] + " href='#'>" +
+                    "<h1>SetId: " + (i + 1) + "</h1>" +
+                    "<h3>Weight: " + row['weight'] + " lb</h3>" +
+                    "<h3>Rep: " + row['rep'] + "</h3>" +
+                    "<h3>Date: " + row['date'] + "</h3>" +
+                    "</li>"
+            }
+            else {
+                htmlcode += "<li><a data-role='button'  data-row-id=" + row['id'] + " href='#'>" +
+                    "<h1>" + (i + 1) + "</h1>" +
+                    "<h3>" + row['timeLength'] + " min</h3>" +
+                    "<h3>" + row['date'] + "</h3>" +
+                    "</li>"
+            }
+        }
+        var lv = $("#lvHistory");
+        lv = lv.html(htmlcode);
+        lv.listview("refresh");
+
+        $("#lvHistory a").on("click", clickHandler);
+
+        function clickHandler() {
+            localStorage.setItem("detailId", $(this).attr("data-row-id"));
+            $.mobile.changePage("#pageEditDetail", {transition: 'none'});
+        }
+    }
+
+    Detail.selectByActionId(options, callback);
+}
+
+function deleteOneDetail() {
+    var id = localStorage.getItem("detailId");
+    var options = [id];
+
+    function callback() {
+        alert("Delete successfully");
+    }
+
+    Detail.delete(options, callback);
+    $.mobile.changePage("#pageHistory", {transition: 'none'});
+}
+
+function EditOneDetail() {
+    var id = localStorage.getItem("detailId");
+    var options = [id];
+
+    function callback(tx, results) {
+        var row = results.rows[0];
+        if (row['timeLength'] == null) {
+            $("#divStrengthDetailModify").show();
+            $("#divCardioDetailModify").hide();
+            $("#txtSetModify").val();
+            $("#txtWeightModify").val(row['weight']);
+            $("#txtRepModify").val(row['rep']);
+        }
+        else {
+            $("#divStrengthDetailModify").hide();
+            $("#divCardioDetailModify").show();
+            $("#txtTimeLengthModify").val();
+        }
+        $("#exerciseDateModify").val(row['date']);
+    }
+
+    Detail.select(options, callback);
+}
+
+function deleteCurrentAction() {
+    var id = localStorage.getItem("actionId");
+    var options = [id];
+
+    function callback() {
+        alert("This action has been removed.")
+    }
+
+    Action.delete(options, callback);
+    $.mobile.changePage("#pagePlan", {transiton: 'none'});
+}
+
+function updateCurrentDetail() {
+    var id = localStorage.getItem("detailId");
+    var weight = $("#txtWeightModify").val();
+    var rep = $("#txtRepModify").val();
+    var timeLength = $("#txtTimeLengthModify").val();
+    var date = $("#exerciseDateModify").val();
+    var actionId = localStorage.getItem("actionId");
+    var options = [];
+    if (timeLength == "") {
+        options = [date, weight, rep, null, actionId, id];
+    }
+    else {
+        options = [date, null, null, timeLength, actionId, id];
+    }
+
+    function callback() {
+        alert("detail updated successfully.");
+    }
+
+    Detail.update(options, callback);
+    $.mobile.changePage("#pageHistory", {transiton: 'none'});
+}
+
+//About page
+//clear Database
+function clearDatabase() {
+
+    try {
+        DB.dropTables();
+        alert("Database cleared.");
+    } catch (e) {
+        alert(e);
+    }
+
+
+}
+
+
+
