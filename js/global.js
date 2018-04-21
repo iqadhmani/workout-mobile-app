@@ -4,14 +4,18 @@
  * Revision History:
  *       Qiao Wang, 2018-04-18 : Created
  */
+//GLOBAL VARIABLES START
+var userEmail = localStorage.getItem("userEmail");
+//GLOBAL VARIABLES END
+
+
+//IBRAHIM FUNCTIONS START
 function btnRegister_click() {
-    var userId = localStorage.getItem("userId");
-    //userId = 1;
-    console.info("Hello " + userId);
-    if (userId == null || userId == undefined || userId == "")
+
+    console.info("Hello " + userEmail);
+    if (userEmail == null || userEmail == undefined || userEmail == "")
     {
         $.mobile.changePage("#pageRegister", {transition: 'fade'});
-        registerAccount();
     }
     else {
         $.mobile.changePage("#pageProfile", {transition: 'fade'});
@@ -19,18 +23,44 @@ function btnRegister_click() {
 }
 
 function btnLogin_click() {
-    var userId = localStorage.getItem("userId");
-    //userId = 1;
-    console.info("Hello " + userId);
-    if (userId == null || userId == undefined || userId == "")
+    console.info("Hello " + userEmail);
+    if (userEmail == null || userEmail == undefined || userEmail == "")
     {
         $.mobile.changePage("#pageLogin", {transition: 'fade'});
-        loginAccount();
     }
     else {
         $.mobile.changePage("#pageProfile", {transition: 'fade'});
     }
 }
+
+function btnAddAccount_click() {
+    registerAccount();
+}
+
+function btnLoginAccount_click() {
+    loginAccount();
+}
+
+function pageProfile_show() {
+    if (userEmail == null || userEmail == undefined || userEmail == "") {
+        $("#pageProfileSection").hide();
+        $.mobile.changePage("#pageLogin", {transition: 'fade'});
+        alert("You need to login to reach your profile.");
+    }
+    else {
+        $("#pageProfileSection").show();
+        profileController();
+    }
+
+}
+
+function btnLogout_click() {
+    userEmail = "";
+    localStorage.setItem("userEmail", userEmail);
+    alert("Logged out successfully. We hope to see you again! :D");
+    $.mobile.changePage("#", {transition: 'fade'});
+}
+//IBRAHIM FUNCTIONS END
 
 function pageExercise_show() {
     getTypes();
@@ -128,10 +158,13 @@ function init() {
     $("#btnUpdateDetail").on("click", btnUpdateDetail_click);
     $("#btnClearDatabase").on("click", btnClearDatabase_click);
 
-    
+    //IBRAHIM EVENTS START
+    $("#btnAddAccount").on("click", btnAddAccount_click);
+    $("#btnLoginAccount").on("click", btnLoginAccount_click);
+    $("#pageProfile").on("pagebeforeshow", pageProfile_show);
+    $("#btnLogout").on("click", btnLogout_click);
+    //IBRAHIM EVENTS END
 
-    //havent finish
-    //$("#btnAddAccount").on("click", btnAddAccount_click);
 
 }
 

@@ -5,13 +5,84 @@
  *       Qiao Wang, 2018-04-18 : Created
  */
 
-function registerAccount() {
+//IBRAHIM FUNCTIONS START
+function emailUnique(email) {
+    var options = [email];
+    function callback(tx, results) {
+        var row = results.rows[0];
+        if (row == undefined) {
+            var name = $("#txtUserName").val();
+            var phone = $("#txtPhone").val();
+            var password = $("#txtPassword").val();
+            var options = [name, email, phone, password];
 
+            function callback() {
+                console.info("Success: Record inserted successfully");
+            }
+
+            User.insert(options, callback);
+
+            alert("User Registered Successfully: " + email);
+            localStorage.setItem("userEmail", email);
+            userEmail = localStorage.getItem("userEmail");
+            if (localStorage.getItem("userEmail") == userEmail) {
+                $.mobile.changePage("#pageProfile", {transition: 'fade'});
+            }
+
+        }
+        else {
+            alert("Email is already registered. Please enter another email.");
+        }
+    }
+    User.selectEmail(options, callback);
+}
+
+
+function registerAccount() {
+    if (doValidate_frmAddAccount()) {
+        var email = $("#txtEmail").val().toLowerCase();
+        emailUnique(email);
+    }
+    else{
+        console.error("Validation failed");
+    }
 }
 
 function loginAccount() {
+    var email = $("#txtLoginEmail").val().toLowerCase();
+    var password = $("#txtLoginPassword").val();
+    var options = [email, password];
 
+    function callback(tx, results) {
+        var row = results.rows[0];
+        userEmail = "";
+        if (!(row == undefined)) {
+            userEmail = row['email'];
+        }
+        localStorage.setItem("userEmail", userEmail);
+        if (localStorage.getItem("userEmail") == "") {
+            alert("Email address or/and password inputted are wrong. Please retry again");
+        }
+        else{
+            alert("Logged in successfully: " + userEmail);
+            $.mobile.changePage("#pageProfile", {transition: 'fade'});
+        }
+    }
+    User.select(options, callback);
 }
+
+function profileController() {
+    userEmail = localStorage.getItem("userEmail");
+    var options = [userEmail];
+    function callback(tx, results) {
+        var row = results.rows[0];
+        $("#profileUsernameHeader").text(row['name'].toUpperCase());
+        $("#txtProfileEmail").val(row['email']);
+        $("#txtProfilePhone").val(row['phone']);
+    }
+    User.selectEmail(options, callback);
+}
+//IBRAHIM FUNCTIONS END
 
 function showAddNewPlan() {
     if ($("#enterPlanName").is(":visible")) {
@@ -39,7 +110,7 @@ function getTypes() {
 
         var lv = $("#lvType");
         lv = lv.html(htmlcode);
-        lv.listview("refresh"); //important
+        lv.listview("refresh");
 
         $("#lvType a").on("click", clickHandler);
 

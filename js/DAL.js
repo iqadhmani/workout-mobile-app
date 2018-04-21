@@ -270,3 +270,37 @@ var Detail = {
         db.transaction(txFunction, errorHandler, successTransaction);
     }
 };
+
+var User = {
+    selectEmail: function (options, callback) {
+        function txFunction(tx) {
+            var sql = "SELECT * FROM user WHERE email = ?;";
+            tx.executeSql(sql, options, callback, errorHandler);
+        }
+        function successTransaction() {
+            console.info("Success selectEmail transaction successful");
+        }
+        db.transaction(txFunction, errorHandler, successTransaction);
+    },
+    select: function (options, callback) {
+        function txFunction(tx) {
+            var sql = "SELECT * FROM user WHERE email = ? AND password = ?;";
+            tx.executeSql(sql, options, callback, errorHandler);
+        }
+        function successTransaction() {
+            console.info("Success select transaction successful");
+        }
+        db.transaction(txFunction, errorHandler, successTransaction);
+    },
+    insert: function (options, callback) {
+        function txFunction(tx) {
+            var sql = "INSERT INTO user(name, email, phone, password) VALUES(?,?,?,?);";
+
+            tx.executeSql(sql, options, callback, errorHandler);
+        }
+        function successTransaction() {
+            console.info("Success: Insert transaction successful");
+        }
+        db.transaction(txFunction, errorHandler, successTransaction);
+    }
+};

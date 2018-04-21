@@ -117,8 +117,11 @@ var DB = {
             sql = "CREATE TABLE IF NOT EXISTS user("
                 + "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
                 + "name VARCHAR(30) NOT NULL,"
-                + "email VARCHAR(50) NOT NULL,"
+                + "email VARCHAR(50) NOT NULL UNIQUE,"
                 + "phone VARCHAR(10),"
+                + "fullName VARCHAR(50),"
+                + "dob DATE,"
+                + "gender VARCHAR(10),"
                 + "password VARCHAR(20));";
             tx.executeSql(sql, options, successCreate, errorHandler);
 
