@@ -37,7 +37,6 @@ function doValidate_frmAddAccount() {
             },
             txtEmail: {
                 required: "Email is required.",
-                uniqueEmail: "Email address is already registered. Please enter another email address.",
                 formatEmail: "Email must be in the right format. E.g. jsmith@fakeemail.com"
             },
             txtPhone: {
@@ -50,6 +49,33 @@ function doValidate_frmAddAccount() {
             txtRePassword: {
                 required: "Please re-enter password.",
                 equalTo: "Password does not match. Please re-enter."
+            }
+        }
+    });
+    return form.valid();
+}
+
+function doValidate_frmLogin() {
+    var form = $("#frmLogin");
+    form.validate({
+        rules: {
+            txtLoginEmail: {
+                required: true,
+                formatEmail: true
+            },
+            txtLoginPassword: {
+                required: true,
+                minlength: 8
+            }
+        },
+        messages: {
+            txtLoginEmail: {
+                required: "Email is required.",
+                formatEmail: "Email must be in the right format. E.g. jsmith@fakeemail.com"
+            },
+            txtLoginPassword: {
+                required: "Password is required",
+                minlength: "Password must be at least 8 characters long."
             }
         }
     });
@@ -69,4 +95,4 @@ jQuery.validator.addMethod("formatPhone",
         return this.optional(element) || regex.test(value);
     },
     "Please enter a phone number in the right format.");
-//
+//IBRAHIM VALIDATION END

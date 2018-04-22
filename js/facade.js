@@ -23,6 +23,9 @@ function emailUnique(email) {
             User.insert(options, callback);
 
             alert("User Registered Successfully: " + email);
+            $("#frmAddAccount").each(function (){
+                this.reset();
+            });
             localStorage.setItem("userEmail", email);
             userEmail = localStorage.getItem("userEmail");
             if (localStorage.getItem("userEmail") == userEmail) {
@@ -49,26 +52,35 @@ function registerAccount() {
 }
 
 function loginAccount() {
-    var email = $("#txtLoginEmail").val().toLowerCase();
-    var password = $("#txtLoginPassword").val();
-    var options = [email, password];
+    if (doValidate_frmLogin()) {
+        var email = $("#txtLoginEmail").val().toLowerCase();
+        var password = $("#txtLoginPassword").val();
+        var options = [email, password];
 
-    function callback(tx, results) {
-        var row = results.rows[0];
-        userEmail = "";
-        if (!(row == undefined)) {
-            userEmail = row['email'];
+        function callback(tx, results) {
+            var row = results.rows[0];
+            userEmail = "";
+            if (!(row == undefined)) {
+                userEmail = row['email'];
+            }
+            localStorage.setItem("userEmail", userEmail);
+            if (localStorage.getItem("userEmail") == "") {
+                alert("Email address or/and password inputted are wrong. Please retry again");
+            }
+            else{
+                alert("Logged in successfully: " + userEmail);
+                $("#frmLogin").each(function (){
+                    this.reset();
+                });
+                $.mobile.changePage("#pageProfile", {transition: 'fade'});
+            }
         }
-        localStorage.setItem("userEmail", userEmail);
-        if (localStorage.getItem("userEmail") == "") {
-            alert("Email address or/and password inputted are wrong. Please retry again");
-        }
-        else{
-            alert("Logged in successfully: " + userEmail);
-            $.mobile.changePage("#pageProfile", {transition: 'fade'});
-        }
+        User.select(options, callback);
     }
-    User.select(options, callback);
+    else{
+        console.error("Validation failed");
+    }
+
 }
 
 function profileController() {
