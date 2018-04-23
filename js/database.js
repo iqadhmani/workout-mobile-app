@@ -235,6 +235,7 @@ var DB = {
                 "DROP TABLE IF EXISTS plan;",
                 "DROP TABLE IF EXISTS exercise;",
                 "DROP TABLE IF EXISTS user;",
+                "DROP TABLE IF EXISTS gender;",
                 "DROP TABLE IF EXISTS body_stats;"
             ];
 

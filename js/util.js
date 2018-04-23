@@ -82,6 +82,37 @@ function doValidate_frmLogin() {
     return form.valid();
 }
 
+function doValidate_frmProfile() {
+    var form = $("#frmProfile");
+    form.validate({
+        rules: {
+            txtProfileUsername: {
+                required: true,
+                rangelength: [3, 18]
+            },
+            txtProfileFullName: {
+                rangelength: [5, 25]
+            },
+            txtProfilePhone: {
+                formatPhone: true
+            }
+        },
+        messages: {
+            txtProfileUsername: {
+                required: "Username is required.",
+                rangelength: "Username must be between 3 to 18 characters."
+            },
+            txtProfileFullName: {
+                formatEmail: "Full name must be between 5 to 25 characters."
+            },
+            txtProfilePhone: {
+                formatPhone: "Phone number must be 10 digits and in the right format. E.g. 1231231234, (123)123-1234."
+            }
+        }
+    });
+    return form.valid();
+}
+
 jQuery.validator.addMethod("formatEmail",
     function(value, element){
         var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;

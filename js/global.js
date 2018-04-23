@@ -49,7 +49,7 @@ function pageProfile_show() {
     }
     else {
         $("#pageProfileSection").show();
-        profileController();
+        profileShow();
     }
 
 }
@@ -73,6 +73,10 @@ function btnCancelLogin_click() {
         this.reset();
     });
     $.mobile.changePage("#pageHome", {transition: 'fade'});
+}
+
+function btnUpdateProfile_click() {
+    updateUser();
 }
 //IBRAHIM FUNCTIONS END
 
@@ -179,6 +183,8 @@ function init() {
     $("#btnLogout").on("click", btnLogout_click);
     $("#btnCancel").on("click", btnCancel_click);
     $("#btnCancelLogin").on("click", btnCancelLogin_click);
+    $("#btnUpdateProfile").on("click", btnUpdateProfile_click);
+
     //IBRAHIM EVENTS END
 
 

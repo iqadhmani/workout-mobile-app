@@ -305,7 +305,7 @@ var User = {
     },
     update: function (options, callback) {
         function txFunction(tx) {
-            var sql = "UPDATE user SET name=?, phone=?, fullName=?, dob=?, gender=? WHERE email=?;";
+            var sql = "UPDATE user SET name=?, phone=?, fullName=?, dob=?, genderId=? WHERE email=?;";
             tx.executeSql(sql, options, callback, errorHandler);
         }
         function successTransaction() {
@@ -320,6 +320,20 @@ var User = {
         }
         function successTransaction() {
             console.info("Success: Update transaction successful");
+        }
+        db.transaction(txFunction, errorHandler, successTransaction);
+    }
+};
+
+var Gender ={
+    selectAll: function (options, callback) {
+        function txFunction(tx) {
+            var sql = "SELECT * FROM gender;";
+
+            tx.executeSql(sql, options, callback, errorHandler);
+        }
+        function successTransaction() {
+            console.info("Success: selectAll transaction successful");
         }
         db.transaction(txFunction, errorHandler, successTransaction);
     }

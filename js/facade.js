@@ -84,18 +84,67 @@ function loginAccount() {
 
 }
 
-function profileController() {
+function updateGender(genderId) {
+    var options = [];
+    function callback(tx, results) {
+
+        var htmlcode = "";
+
+        for (var i = 0; i < results.rows.length; i++) {
+            var row = results.rows[i];
+            htmlcode += "<option value=" + row['id'] +  " id='cmbGender" + row['gender'] + "' ";
+            if (genderId === i+1) {
+                htmlcode += "selected";
+            }
+            htmlcode += ">" + row['gender'] + "</option>";
+        }
+
+        var op = $("#slcProfileGender");
+        op = op.html(htmlcode);
+        op.selectmenu("refresh");
+    }
+    Gender.selectAll(options, callback);
+}
+
+function profileShow() {
     userEmail = localStorage.getItem("userEmail");
     var options = [userEmail];
     function callback(tx, results) {
         var row = results.rows[0];
         $("#profileUsernameHeader").text(row['name'].toUpperCase());
         $("#txtProfileUsername").val(row['name']);
+        $("#txtProfileFullName").val(row['fullName']);
+        $("#txtProfileDob").val(row['dob']);
+        var genderId = row['genderId'];
+        updateGender(genderId);
+        $("#slcProfileGender").val(row['genderId']);
         $("#txtProfileEmail").val(row['email']);
         $("#txtProfilePhone").val(row['phone']);
         localStorage.setItem('userId',row['id']);
     }
     User.selectEmail(options, callback);
+}
+
+function updateUser() {
+    if (doValidate_frmProfile()) {
+        userEmail = localStorage.getItem("userEmail");
+        var username = $("#txtProfileUsername").val();
+        var fullName = $("#txtProfileFullName").val();
+        var dob = $("#txtProfileDob").val();
+        var gender = $("#slcProfileGender").val();
+        var phone = $("#txtProfilePhone").val();
+        var options = [username, phone, fullName, dob, gender, userEmail];
+        function callback() {
+            console.info("Success: Record updated successfully");
+        }
+        User.update(options, callback);
+        alert("Profile Updated Successfully");
+        $.mobile.changePage("#pageLoading", {transition: 'fade'});
+        $.mobile.changePage("#pageProfile", {transition: 'pop'});
+    }
+    else{
+        console.error("Validation failed");
+    }
 }
 //IBRAHIM FUNCTIONS END
 
@@ -571,6 +620,7 @@ function clearDatabase() {
 
     try {
         DB.dropTables();
+        localStorage.clear();
         alert("Database cleared.");
     } catch (e) {
         alert(e);
