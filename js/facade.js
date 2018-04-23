@@ -146,6 +146,57 @@ function updateUser() {
         console.error("Validation failed");
     }
 }
+
+function deleteUser() {
+    var result = confirm("You are about to delete your user. Do you want to proceed?");
+    if (result) {
+        try {
+            userEmail = localStorage.getItem("userEmail");
+            var options = [userEmail];
+            var userId = localStorage.getItem("userId");
+            deleteUserPlan(userId);
+            function callback() {
+                console.info("Success: user deleted successfully");
+                $.mobile.changePage("#", {transition: 'fade'});
+            }
+            userEmail = "";
+            localStorage.setItem('userEmail', '');
+            localStorage.removeItem('userId');
+            alert("User Deleted Successfully.");
+            User.delete(options, callback);
+        } catch (e) {
+            alert(e);
+        }
+
+
+    }
+}
+
+function deleteUserPlan(userId) {
+    deleteUserAction(userId);
+    var options = [userId];
+    function callback() {
+        console.info("Success: User's plans deleted successfully");
+    }
+    Plan.deleteUserPlan(options, callback);
+}
+
+function deleteUserAction(userId) {
+    deleteUserDetail(userId);
+    var options = [userId];
+    function callback() {
+        console.info("Success: User's actions deleted successfully");
+    }
+    Action.deleteUserAction(options, callback);
+}
+
+function deleteUserDetail(userId) {
+    var options = [userId];
+    function callback() {
+        console.info("Success: User's actions detail deleted successfully");
+    }
+    Detail.deleteUserDetail(options, callback);
+}
 //IBRAHIM FUNCTIONS END
 
 function showAddNewPlan() {
@@ -263,8 +314,8 @@ function getAllExercise() {
             var exerciseId = $(this).attr("data-row-id");
             var planId = localStorage.getItem("planId");
             var options = [];
-
-            options = [planId, exerciseId];
+            var userId = localStorage.getItem("userId");
+            options = [planId, exerciseId, userId];
 
             function callback() {
                 alert("Insert successfully.");
@@ -452,11 +503,12 @@ function saveCurrentRecord() {
     var actionId = localStorage.getItem("actionId");
     var date = $("#exerciseDate").val();
     var options = [];
+    var userId = localStorage.getItem("userId");
     if (timeLength == "") {
-        options = [date, weight, rep, null, actionId];
+        options = [date, weight, rep, null, actionId, userId];
     }
     else {
-        options = [date, null, null, timeLength, actionId];
+        options = [date, null, null, timeLength, actionId, userId];
     }
 
     function callback() {

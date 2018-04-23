@@ -57,6 +57,7 @@ function pageProfile_show() {
 function btnLogout_click() {
     userEmail = "";
     localStorage.setItem("userEmail", userEmail);
+    localStorage.removeItem('userId');
     alert("Logged out successfully. We hope to see you again! :D");
     $.mobile.changePage("#", {transition: 'fade'});
 }
@@ -77,6 +78,10 @@ function btnCancelLogin_click() {
 
 function btnUpdateProfile_click() {
     updateUser();
+}
+
+function btnDeleteUser_click() {
+    deleteUser();
 }
 //IBRAHIM FUNCTIONS END
 
@@ -184,6 +189,7 @@ function init() {
     $("#btnCancel").on("click", btnCancel_click);
     $("#btnCancelLogin").on("click", btnCancelLogin_click);
     $("#btnUpdateProfile").on("click", btnUpdateProfile_click);
+    $("#btnDeleteUser").on("click", btnDeleteUser_click);
 
     //IBRAHIM EVENTS END
 

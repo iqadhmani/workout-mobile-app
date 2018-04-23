@@ -96,6 +96,18 @@ var Plan = {
 
         db.transaction(txFunction, errorHandler, successTransaction);
     },
+    deleteUserPlan: function (options, callback) {
+        function txFunction(tx) {
+            var sql = "DELETE FROM Plan WHERE userId=?;";
+            tx.executeSql(sql, options, callback, errorHandler);
+        }
+
+        function successTransaction() {
+            console.info("Success: Delete transaction successful");
+        }
+
+        db.transaction(txFunction, errorHandler, successTransaction);
+    },
     selectUserPlan: function (options, callback) {
         function txFunction(tx) {
             var sql = "SELECT plan.name AS name, plan.date AS date, plan.id AS id FROM plan JOIN User ON plan.userId = User.id WHERE userId=?;";
@@ -125,7 +137,7 @@ var Plan = {
 var Action = {
     insert: function (options, callback) {
         function txFunction(tx) {
-            var sql = "INSERT INTO Action(planId, exerciseId) VALUES(?,?);";
+            var sql = "INSERT INTO Action(planId, exerciseId, userId) VALUES(?,?,?);";
             tx.executeSql(sql, options, callback, errorHandler);
         }
 
@@ -150,6 +162,18 @@ var Action = {
     delete: function (options, callback) {
         function txFunction(tx) {
             var sql = "DELETE FROM Action WHERE id=?;";
+            tx.executeSql(sql, options, callback, errorHandler);
+        }
+
+        function successTransaction() {
+            console.info("Success: Delete transaction successful");
+        }
+
+        db.transaction(txFunction, errorHandler, successTransaction);
+    },
+    deleteUserAction: function (options, callback) {
+        function txFunction(tx) {
+            var sql = "DELETE FROM Action WHERE userId=?;";
             tx.executeSql(sql, options, callback, errorHandler);
         }
 
@@ -199,7 +223,7 @@ var Action = {
 var Detail = {
     insert: function (options, callback) {
         function txFunction(tx) {
-            var sql = "INSERT INTO Detail(date, weight, rep, timeLength,actionId) VALUES(?,?,?,?,?);";
+            var sql = "INSERT INTO Detail(date, weight, rep, timeLength, actionId, userId) VALUES(?,?,?,?,?,?);";
             tx.executeSql(sql, options, callback, errorHandler);
         }
 
@@ -224,6 +248,18 @@ var Detail = {
     delete: function (options, callback) {
         function txFunction(tx) {
             var sql = "DELETE FROM Detail WHERE id=?;";
+            tx.executeSql(sql, options, callback, errorHandler);
+        }
+
+        function successTransaction() {
+            console.info("Success: Delete transaction successful");
+        }
+
+        db.transaction(txFunction, errorHandler, successTransaction);
+    },
+    deleteUserDetail: function (options, callback) {
+        function txFunction(tx) {
+            var sql = "DELETE FROM Detail WHERE userId=?;";
             tx.executeSql(sql, options, callback, errorHandler);
         }
 

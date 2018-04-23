@@ -194,8 +194,10 @@ var DB = {
                 + "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
                 + "planId INTEGER,"
                 + "exerciseId INTEGER,"
+                + "userId INTEGER NOT NULL,"
                 + "FOREIGN KEY(planId) REFERENCES plan(id),"
-                + "FOREIGN KEY(exerciseId) REFERENCES exercise(id));";
+                + "FOREIGN KEY(exerciseId) REFERENCES exercise(id),"
+                + "FOREIGN KEY(userId) REFERENCES user(id));";
             tx.executeSql(sql, options, successCreate, errorHandler);
 
             //create detail table
@@ -206,7 +208,9 @@ var DB = {
                 + "rep INTEGER(10),"
                 + "timeLength INTEGER(10),"
                 + "actionId INTEGER,"
-                + "FOREIGN KEY(actionId) REFERENCES action(id));";
+                + "userId INTEGER NOT NULL,"
+                + "FOREIGN KEY(actionId) REFERENCES action(id),"
+                + "FOREIGN KEY(userId) REFERENCES user(id));";
             tx.executeSql(sql, options, successCreate, errorHandler);
 
         }
