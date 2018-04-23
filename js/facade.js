@@ -73,6 +73,7 @@ function loginAccount() {
                     this.reset();
                 });
                 $.mobile.changePage("#pageProfile", {transition: 'fade'});
+                localStorage.setItem('userId',row['id']);
             }
         }
         User.select(options, callback);
@@ -240,8 +241,19 @@ function addNewPlan() {
     }
     var date = yyyy + '-' + mm + '-' + dd;
 
+    //get the userId from localstorage which comes from user login
+    var id = localStorage.getItem('userId');
+    if (id == null) {
+        alert('You have to login or register before add on plan.');
+        $.mobile.changePage("#pageHome",{transition:'fade'});
+    }
+    else{
+        options = [date, planName, id];
+    }
+
+
     //test user id equal 1
-    options = [date, planName, 1];
+
 
     function callback() {
         console.info("Success: Record inserted successfully");
