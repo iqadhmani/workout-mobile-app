@@ -302,5 +302,25 @@ var User = {
             console.info("Success: Insert transaction successful");
         }
         db.transaction(txFunction, errorHandler, successTransaction);
+    },
+    update: function (options, callback) {
+        function txFunction(tx) {
+            var sql = "UPDATE user SET name=?, phone=?, fullName=?, dob=?, gender=? WHERE email=?;";
+            tx.executeSql(sql, options, callback, errorHandler);
+        }
+        function successTransaction() {
+            console.info("Success: Update transaction successful");
+        }
+        db.transaction(txFunction, errorHandler, successTransaction);
+    },
+    delete: function (options, callback) {
+        function txFunction(tx) {
+            var sql = "DELETE FROM user WHERE email=?;";
+            tx.executeSql(sql, options, callback, errorHandler);
+        }
+        function successTransaction() {
+            console.info("Success: Update transaction successful");
+        }
+        db.transaction(txFunction, errorHandler, successTransaction);
     }
 };

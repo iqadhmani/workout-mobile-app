@@ -421,7 +421,7 @@ email:      Qwang8308@conestogac.on.ca
                            data-theme="a" data-clear-btn="true">
                     <label for="txtProfileEmail">Email Address</label>
                     <input type="text" id="txtProfileEmail" name="txtProfileEmail" value="" class=""
-                           data-theme="a" data-clear-btn="true">
+                           data-theme="a" data-clear-btn="true" disabled>
                     <label for="txtProfilePhone">Phone Number</label>
                     <input type="text" id="txtProfilePhone" name="txtProfilePhone" value="" class=""
                            data-theme="a" data-clear-btn="true">
@@ -430,12 +430,17 @@ email:      Qwang8308@conestogac.on.ca
                            data-theme="a" data-clear-btn="true">
                     <label for="slcProfileGender">Gender</label>
                     <select name="slcProfileGender" id="slcProfileGender">
-                        <option value="none"></option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
+                        <!--<option value="none"></option>-->
+                        <!--<option value="male">Male</option>-->
+                        <!--<option value="female">Female</option>-->
                     </select>
+                    <div data-role="controlgroup" data-type="horizontal" id="profileControlGroup">
+                        <button type="button" id="btnUpdateProfile" name="btnUpdateProfile" data-theme="a" data-inline="true" class="ui-btn-active">Update</button>
+                        <button type="button" id="btnLogout" name="btnLogout" data-theme="a" data-inline="true">Logout</button>
+                        <button type="button" id="btnDeleteUser" name="btnDeleteUser" data-theme="b" data-inline="true">Delete User</button>
+                    </div>
                 </form>
-                <a id="btnLogout" name="btnLogout" data-role="button" data-theme="b">Logout</a>
+
 
             </section>
             <footer data-role="footer" data-theme="b" data-position="fixed">

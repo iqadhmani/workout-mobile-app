@@ -77,6 +77,40 @@ var DB = {
                 tx.executeSql(sql[i], options, successInsert, errorHandler);
             }
 
+            //DROPPING, CREATING, INSERTING FOR LOOKUP TABLE gender START
+            var sql = "DROP TABLE IF EXISTS gender;";
+            var options = [];
+
+            function successDrop() {
+                console.info("Success: Table dropped successfully.");
+            }
+
+            tx.executeSql(sql, options, successDrop, errorHandler);
+
+            sql = "CREATE TABLE IF NOT EXISTS gender( " +
+                "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, " +
+                "gender VARCHAR(20) NOT NULL);";
+
+            function successCreate() {
+                console.info("Success: Table created successfully.");
+            }
+
+            tx.executeSql(sql, options, successCreate, errorHandler);
+
+            function successInsert() {
+                console.info("Success: Records inserted successfully.");
+            }
+
+            sql = "INSERT INTO gender (gender) VALUES('');";
+            tx.executeSql(sql, options, successInsert, errorHandler);
+
+            sql = "INSERT INTO gender (gender) VALUES('Male');";
+            tx.executeSql(sql, options, successInsert, errorHandler);
+
+            sql = "INSERT INTO gender (gender) VALUES('Female');";
+            tx.executeSql(sql, options, successInsert, errorHandler);
+            //DROPPING, CREATING, INSERTING FOR LOOKUP TABLE gender END
+
             //exercise table
             //drop exercise table
             console.info("Dropping Table exercise if exists...");
@@ -121,8 +155,9 @@ var DB = {
                 + "phone VARCHAR(10),"
                 + "fullName VARCHAR(50),"
                 + "dob DATE,"
-                + "gender VARCHAR(10),"
-                + "password VARCHAR(20));";
+                + "genderId INTEGER(10),"
+                + "password VARCHAR(20),"
+                + "FOREIGN KEY(genderId) REFERENCES gender(id));";
             tx.executeSql(sql, options, successCreate, errorHandler);
 
             //create body stats table
