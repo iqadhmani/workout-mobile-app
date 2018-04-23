@@ -73,6 +73,7 @@ function loginAccount() {
                     this.reset();
                 });
                 $.mobile.changePage("#pageProfile", {transition: 'fade'});
+
             }
         }
         User.select(options, callback);
@@ -91,6 +92,7 @@ function profileController() {
         $("#profileUsernameHeader").text(row['name'].toUpperCase());
         $("#txtProfileEmail").val(row['email']);
         $("#txtProfilePhone").val(row['phone']);
+        localStorage.setItem('userId',row['id']);
     }
     User.selectEmail(options, callback);
 }
@@ -105,6 +107,7 @@ function showAddNewPlan() {
     }
 }
 
+//Exercise functions
 function getTypes() {
     var options = [];
 
@@ -112,10 +115,8 @@ function getTypes() {
 
         var htmlcode = "";
 
-
         for (var i = 0; i < results.rows.length; i++) {
             var row = results.rows[i];
-
             htmlcode += "<li><a data-role='button' data-row-id=" + row['id'] + " href='#'>" +
                 "<h1> " + row['name'] + "</h1></a></li>";
         }
@@ -130,12 +131,11 @@ function getTypes() {
             localStorage.setItem("typeId", $(this).attr("data-row-id"));
             $.mobile.changePage("#pageExerciseCurrentType", {transition: 'fade'});
         }
-
-
     }
 
     Type.selectAll(options, callback);
 }
+
 
 function getExercises() {
     var id = localStorage.getItem("typeId");
@@ -161,9 +161,9 @@ function getExercises() {
             $.mobile.changePage("#pageExerciseCurrentDetail", {transition: 'fade'});
         }
     }
-
     Exercise.select(options, callback);
 }
+
 
 function getExerciseCurrentDetail() {
     var exerciseId = localStorage.getItem('exerciseId');
@@ -191,6 +191,7 @@ function getExerciseCurrentDetail() {
     CurrentExercise.select(options, callback);
 }
 
+//display all exercise when user click add new action
 function getAllExercise() {
     var options = [];
 
@@ -212,16 +213,15 @@ function getAllExercise() {
             var exerciseId = $(this).attr("data-row-id");
             var planId = localStorage.getItem("planId");
             var options = [];
+
             options = [planId, exerciseId];
 
             function callback() {
                 alert("Insert successfully.");
             }
-
             Action.insert(options, callback);
         }
     }
-
     Exercise.selectAll(options, callback);
 }
 
@@ -240,9 +240,15 @@ function addNewPlan() {
     }
     var date = yyyy + '-' + mm + '-' + dd;
 
-    //test user id equal 1
-    options = [date, planName, 1];
-
+    //get the userId from localstorage which comes from user login
+    var id = localStorage.getItem('userId');
+    if (id == null) {
+        alert('You have to login or register before add on plan.');
+        $.mobile.changePage("#pageHome",{transition:'fade'});
+    }
+    else{
+        options = [date, planName, id];
+    }
     function callback() {
         console.info("Success: Record inserted successfully");
     }
@@ -252,7 +258,8 @@ function addNewPlan() {
 }
 
 function displayAllPlans() {
-    var options = [];
+    var id = localStorage.getItem("userId");
+    var options = [id];
 
     function callback(tx, results) {
         var htmlcode = "";
@@ -262,6 +269,9 @@ function displayAllPlans() {
                 "<h1>" + row['name'] + "</h1>" +
                 "<p>" + row['date'] + "</p>" +
                 "</a></li>"
+        }
+        if (localStorage.getItem('userEmail') == null ||localStorage.getItem('userEmail')=="") {
+            htmlcode = "";
         }
         var lv = $("#lvAllPlans");
         lv = lv.html(htmlcode);
@@ -275,7 +285,7 @@ function displayAllPlans() {
         }
     }
 
-    Plan.selectAll(options, callback);
+    Plan.selectUserPlan(options, callback);
 }
 
 function showOnePlan() {

@@ -96,9 +96,9 @@ var Plan = {
 
         db.transaction(txFunction, errorHandler, successTransaction);
     },
-    select: function (options, callback) {
+    selectUserPlan: function (options, callback) {
         function txFunction(tx) {
-            var sql = "SELECT * FROM Plan WHERE id=?;";
+            var sql = "SELECT plan.name AS name, plan.date AS date, plan.id AS id FROM plan JOIN User ON plan.userId = User.id WHERE userId=?;";
             tx.executeSql(sql, options, callback, errorHandler);
         }
 
