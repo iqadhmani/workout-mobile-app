@@ -58,6 +58,7 @@ img {
     position: relative;
     overflow: hidden;
     border-radius: 50%;
+    border: 5px black solid;
 }
 
 #pageProfile h1{

@@ -60,6 +60,20 @@ function btnLogout_click() {
     alert("Logged out successfully. We hope to see you again! :D");
     $.mobile.changePage("#", {transition: 'fade'});
 }
+
+function btnCancel_click() {
+    $("#frmAddAccount").each(function (){
+        this.reset();
+    });
+    $.mobile.changePage("#pageHome", {transition: 'fade'});
+}
+
+function btnCancelLogin_click() {
+    $("#frmLogin").each(function (){
+        this.reset();
+    });
+    $.mobile.changePage("#pageHome", {transition: 'fade'});
+}
 //IBRAHIM FUNCTIONS END
 
 function pageExercise_show() {
@@ -163,6 +177,8 @@ function init() {
     $("#btnLoginAccount").on("click", btnLoginAccount_click);
     $("#pageProfile").on("pagebeforeshow", pageProfile_show);
     $("#btnLogout").on("click", btnLogout_click);
+    $("#btnCancel").on("click", btnCancel_click);
+    $("#btnCancelLogin").on("click", btnCancelLogin_click);
     //IBRAHIM EVENTS END
 
 

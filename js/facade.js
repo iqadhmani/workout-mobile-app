@@ -90,6 +90,7 @@ function profileController() {
     function callback(tx, results) {
         var row = results.rows[0];
         $("#profileUsernameHeader").text(row['name'].toUpperCase());
+        $("#txtProfileUsername").val(row['name']);
         $("#txtProfileEmail").val(row['email']);
         $("#txtProfilePhone").val(row['phone']);
         localStorage.setItem('userId',row['id']);
