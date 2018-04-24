@@ -48,6 +48,8 @@ var DB = {
 
         function txFunction(tx) {
             var options = [];
+
+
             //Create two lookup tables
             //type table
             //drop type table
@@ -125,7 +127,7 @@ var DB = {
                 + "typeId INTEGER NOT NULL,"
                 + "startImage VARCHAR(255),"
                 + "endImage VARCHAR(255),"
-                + "FOREIGN KEY(typeId) REFERENCES type(id));";
+                + "FOREIGN KEY(typeId) REFERENCES type(id)) ;";
 
             tx.executeSql(sql, options, successCreate, errorHandler);
             console.info("Inserting data to Table exercise...");
@@ -177,7 +179,9 @@ var DB = {
                 + "calve INTEGER(10),"
                 + "neck INTEGER(10),"
                 + "userId INTEGER NOT NULL,"
-                + "FOREIGN KEY(userId) REFERENCES user(id));";
+                + "FOREIGN KEY(userId) REFERENCES user(id)) ;";
+
+
             tx.executeSql(sql, options, successCreate, errorHandler);
 
             //create plan table
@@ -186,8 +190,10 @@ var DB = {
                 + "date date NOT NULL,"
                 + "name VARCHAR(30) NOT NULL,"
                 + "userId INTEGER NOT NULL,"
-                + "FOREIGN KEY(userId) REFERENCES user(id));";
+                + "FOREIGN KEY(userId) REFERENCES user(id)) ;";
             tx.executeSql(sql, options, successCreate, errorHandler);
+
+            sql = "ALERT TABLE "
 
             //create action table
             sql = "CREATE TABLE IF NOT EXISTS action("
@@ -195,9 +201,10 @@ var DB = {
                 + "planId INTEGER,"
                 + "exerciseId INTEGER,"
                 + "userId INTEGER NOT NULL,"
-                + "FOREIGN KEY(planId) REFERENCES plan(id),"
                 + "FOREIGN KEY(exerciseId) REFERENCES exercise(id),"
-                + "FOREIGN KEY(userId) REFERENCES user(id));";
+                + "FOREIGN KEY(userId) REFERENCES user(id),"
+                + "FOREIGN KEY(planId) REFERENCES plan(id) ON DELETE CASCADE);";
+
             tx.executeSql(sql, options, successCreate, errorHandler);
 
             //create detail table
@@ -209,8 +216,10 @@ var DB = {
                 + "timeLength INTEGER(10),"
                 + "actionId INTEGER,"
                 + "userId INTEGER NOT NULL,"
-                + "FOREIGN KEY(actionId) REFERENCES action(id),"
-                + "FOREIGN KEY(userId) REFERENCES user(id));";
+                + "planId INTEGER NOT NULL,"
+                + "FOREIGN KEY(userId) REFERENCES user(id),"
+                + "FOREIGN KEY(planId) REFERENCES plan(id),"
+                + "FOREIGN KEY(actionId) REFERENCES action(id) ON DELETE CASCADE);";
             tx.executeSql(sql, options, successCreate, errorHandler);
 
         }

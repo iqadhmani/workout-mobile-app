@@ -120,6 +120,19 @@ var Plan = {
 
         db.transaction(txFunction, errorHandler, successTransaction);
     },
+    select: function (options, callback) {
+        function txFunction(tx) {
+            var sql = "SELECT * FROM Plan WHERE id=?;";
+            tx.executeSql(sql, options, callback, errorHandler);
+        }
+
+        function successTransaction() {
+            console.info("Success: Select transaction successful");
+        }
+
+        db.transaction(txFunction, errorHandler, successTransaction);
+    },
+
     selectAll: function (options, callback) {
         function txFunction(tx) {
             var sql = "SELECT * FROM Plan;";
@@ -161,7 +174,19 @@ var Action = {
     },
     delete: function (options, callback) {
         function txFunction(tx) {
-            var sql = "DELETE FROM Action WHERE id=?;";
+            var sql = "DELETE FROM Action WHERE actionId=?;";
+            tx.executeSql(sql, options, callback, errorHandler);
+        }
+
+        function successTransaction() {
+            console.info("Success: Delete transaction successful");
+        }
+
+        db.transaction(txFunction, errorHandler, successTransaction);
+    },
+    deletePlanAction: function (options, callback) {
+        function txFunction(tx) {
+            var sql = "DELETE FROM Action WHERE planId=?;";
             tx.executeSql(sql, options, callback, errorHandler);
         }
 
@@ -186,6 +211,18 @@ var Action = {
     select: function (options, callback) {
         function txFunction(tx) {
             var sql = "SELECT * FROM Action JOIN exercise ON Action.exerciseId = exercise.id WHERE action.id=?;";
+            tx.executeSql(sql, options, callback, errorHandler);
+        }
+
+        function successTransaction() {
+            console.info("Success: Select transaction successful");
+        }
+
+        db.transaction(txFunction, errorHandler, successTransaction);
+    },
+    selectPlan: function (options, callback) {
+        function txFunction(tx) {
+            var sql = "SELECT * FROM Action WHERE planId=?;";
             tx.executeSql(sql, options, callback, errorHandler);
         }
 
@@ -248,6 +285,18 @@ var Detail = {
     delete: function (options, callback) {
         function txFunction(tx) {
             var sql = "DELETE FROM Detail WHERE id=?;";
+            tx.executeSql(sql, options, callback, errorHandler);
+        }
+
+        function successTransaction() {
+            console.info("Success: Delete transaction successful");
+        }
+
+        db.transaction(txFunction, errorHandler, successTransaction);
+    },
+    deletePlanDetail: function (options, callback) {
+        function txFunction(tx) {
+            var sql = "DELETE FROM Detail WHERE planId=?;";
             tx.executeSql(sql, options, callback, errorHandler);
         }
 

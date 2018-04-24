@@ -8,6 +8,7 @@
 //IBRAHIM FUNCTIONS START
 function emailUnique(email) {
     var options = [email];
+
     function callback(tx, results) {
         var row = results.rows[0];
         if (row == undefined) {
@@ -23,7 +24,7 @@ function emailUnique(email) {
             User.insert(options, callback);
 
             alert("User Registered Successfully: " + email);
-            $("#frmAddAccount").each(function (){
+            $("#frmAddAccount").each(function () {
                 this.reset();
             });
             localStorage.setItem("userEmail", email);
@@ -37,6 +38,7 @@ function emailUnique(email) {
             alert("Email is already registered. Please enter another email.");
         }
     }
+
     User.selectEmail(options, callback);
 }
 
@@ -46,7 +48,7 @@ function registerAccount() {
         var email = $("#txtEmail").val().toLowerCase();
         emailUnique(email);
     }
-    else{
+    else {
         console.error("Validation failed");
     }
 }
@@ -67,18 +69,19 @@ function loginAccount() {
             if (localStorage.getItem("userEmail") == "") {
                 alert("Email address or/and password inputted are wrong. Please retry again");
             }
-            else{
+            else {
                 alert("Logged in successfully: " + userEmail);
-                $("#frmLogin").each(function (){
+                $("#frmLogin").each(function () {
                     this.reset();
                 });
                 $.mobile.changePage("#pageProfile", {transition: 'fade'});
 
             }
         }
+
         User.select(options, callback);
     }
-    else{
+    else {
         console.error("Validation failed");
     }
 
@@ -86,14 +89,15 @@ function loginAccount() {
 
 function updateGender(genderId) {
     var options = [];
+
     function callback(tx, results) {
 
         var htmlcode = "";
 
         for (var i = 0; i < results.rows.length; i++) {
             var row = results.rows[i];
-            htmlcode += "<option value=" + row['id'] +  " id='cmbGender" + row['gender'] + "' ";
-            if (genderId === i+1) {
+            htmlcode += "<option value=" + row['id'] + " id='cmbGender" + row['gender'] + "' ";
+            if (genderId === i + 1) {
                 htmlcode += "selected";
             }
             htmlcode += ">" + row['gender'] + "</option>";
@@ -103,12 +107,14 @@ function updateGender(genderId) {
         op = op.html(htmlcode);
         op.selectmenu("refresh");
     }
+
     Gender.selectAll(options, callback);
 }
 
 function profileShow() {
     userEmail = localStorage.getItem("userEmail");
     var options = [userEmail];
+
     function callback(tx, results) {
         var row = results.rows[0];
         $("#profileUsernameHeader").text(row['name'].toUpperCase());
@@ -120,8 +126,9 @@ function profileShow() {
         $("#slcProfileGender").val(row['genderId']);
         $("#txtProfileEmail").val(row['email']);
         $("#txtProfilePhone").val(row['phone']);
-        localStorage.setItem('userId',row['id']);
+        localStorage.setItem('userId', row['id']);
     }
+
     User.selectEmail(options, callback);
 }
 
@@ -134,15 +141,17 @@ function updateUser() {
         var gender = $("#slcProfileGender").val();
         var phone = $("#txtProfilePhone").val();
         var options = [username, phone, fullName, dob, gender, userEmail];
+
         function callback() {
             console.info("Success: Record updated successfully");
         }
+
         User.update(options, callback);
         alert("Profile Updated Successfully");
         $.mobile.changePage("#pageLoading", {transition: 'fade'});
         $.mobile.changePage("#pageProfile", {transition: 'pop'});
     }
-    else{
+    else {
         console.error("Validation failed");
     }
 }
@@ -155,10 +164,12 @@ function deleteUser() {
             var options = [userEmail];
             var userId = localStorage.getItem("userId");
             deleteUserPlan(userId);
+
             function callback() {
                 console.info("Success: user deleted successfully");
                 $.mobile.changePage("#", {transition: 'fade'});
             }
+
             userEmail = "";
             localStorage.setItem('userEmail', '');
             localStorage.removeItem('userId');
@@ -167,36 +178,41 @@ function deleteUser() {
         } catch (e) {
             alert(e);
         }
-
-
     }
 }
 
 function deleteUserPlan(userId) {
     deleteUserAction(userId);
     var options = [userId];
+
     function callback() {
         console.info("Success: User's plans deleted successfully");
     }
+
     Plan.deleteUserPlan(options, callback);
 }
 
 function deleteUserAction(userId) {
     deleteUserDetail(userId);
     var options = [userId];
+
     function callback() {
         console.info("Success: User's actions deleted successfully");
     }
+
     Action.deleteUserAction(options, callback);
 }
 
 function deleteUserDetail(userId) {
     var options = [userId];
+
     function callback() {
         console.info("Success: User's actions detail deleted successfully");
     }
+
     Detail.deleteUserDetail(options, callback);
 }
+
 //IBRAHIM FUNCTIONS END
 
 function showAddNewPlan() {
@@ -262,6 +278,7 @@ function getExercises() {
             $.mobile.changePage("#pageExerciseCurrentDetail", {transition: 'fade'});
         }
     }
+
     Exercise.select(options, callback);
 }
 
@@ -313,49 +330,60 @@ function getAllExercise() {
         function clickHandler() {
             var exerciseId = $(this).attr("data-row-id");
             var planId = localStorage.getItem("planId");
-            var options = [];
             var userId = localStorage.getItem("userId");
+            var options = "";
             options = [planId, exerciseId, userId];
 
             function callback() {
                 alert("Insert successfully.");
             }
+
             Action.insert(options, callback);
         }
     }
+
     Exercise.selectAll(options, callback);
 }
 
+
 function addNewPlan() {
-    var options = [];
-    var planName = $("#txtPlanName").val();
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1;
-    var yyyy = today.getFullYear();
-    if (dd < 10) {
-        dd = '0' + dd;
-    }
-    if (mm < 10) {
-        mm = '0' + mm;
-    }
-    var date = yyyy + '-' + mm + '-' + dd;
+    if (doValidate_frmEnterPlanName()) {
+        var options = [];
+        var planName = $("#txtPlanName").val();
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1;
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+        var date = yyyy + '-' + mm + '-' + dd;
 
-    //get the userId from localstorage which comes from user login
-    var id = localStorage.getItem('userId');
-    if (id == null) {
-        alert('You have to login or register before add on plan.');
-        $.mobile.changePage("#pageHome",{transition:'fade'});
+        //get the userId from localstorage which comes from user login
+        var id = localStorage.getItem('userId');
+        if (id == null) {
+            $.mobile.changePage("#pageHome", {transition: 'fade'});
+            alert('You have to login or register before add on plan.');
+        }
+        else {
+            options = [date, planName, id];
+
+            function callback() {
+                console.info("Success: Record inserted successfully");
+            }
+
+            Plan.insert(options, callback);
+        }
+
+        location.reload();
     }
-    else{
-        options = [date, planName, id];
-    }
-    function callback() {
-        console.info("Success: Record inserted successfully");
+    else {
+        console.error("Validation failed");
     }
 
-    Plan.insert(options, callback);
-    location.reload();
 }
 
 function displayAllPlans() {
@@ -371,7 +399,7 @@ function displayAllPlans() {
                 "<p>" + row['date'] + "</p>" +
                 "</a></li>"
         }
-        if (localStorage.getItem('userEmail') == null ||localStorage.getItem('userEmail')=="") {
+        if (localStorage.getItem('userEmail') == null || localStorage.getItem('userEmail') == "") {
             htmlcode = "";
         }
         var lv = $("#lvAllPlans");
@@ -396,14 +424,18 @@ function showOnePlan() {
     function callback(tx, results) {
 
         var htmlcode = "";
-        htmlcode = "<h1>" + results.rows[0]['planName'] + "</h1>";
+        var htmlcontent = "";
+        var planName = "";
+
         for (var i = 0; i < results.rows.length; i++) {
             var row = results.rows[i];
-            htmlcode += "<li><a data-role='button' data-row-id=" + row['id'] + " href='#'>" +
+            planName = results.rows[0]['planName'];
+            htmlcontent += "<li><a data-role='button' data-row-id=" + row['id'] + " href='#'>" +
                 "<img src='" + row['startImage'] + "' width='20%'>" +
                 "<h1> " + row['name'] + "</h1>" +
                 "</a></li>";
         }
+        htmlcode = "<h1>" + planName + "</h1>" + htmlcontent;
         var lv = $("#lvOnePlan");
         lv = lv.html(htmlcode);
         lv.listview("refresh");
@@ -437,30 +469,54 @@ function EditCurrentPlan() {
 }
 
 function updateCurrentPlan() {
-    var id = localStorage.getItem("planId");
-    var planName = $("#txtPlanNameModify").val();
-    var planDate = $("#txtPlanDateModify").val();
-    var options = [];
-    options = [planName, planDate, id];
+    if (doValidate_frmEditPlan()) {
+        var id = localStorage.getItem("planId");
+        var planName = $("#txtPlanNameModify").val();
+        var planDate = $("#txtPlanDateModify").val();
+        var options = [];
+        options = [planName, planDate, id];
 
-    function callback() {
-        alert("update successfully.");
+        function callback() {
+            alert("update successfully.");
+        }
+
+        Plan.update(options, callback);
+        location.reload();
+    }
+    else {
+        console.error("Validation failed");
     }
 
-    Plan.update(options, callback);
-    location.reload();
 }
 
 function deleteCurrentPlan() {
     var id = localStorage.getItem("planId");
     var options = [id];
-
+    deleteAction(id);
     function callback() {
         alert("This plan has been removed.");
     }
 
     Plan.delete(options, callback);
     $.mobile.changePage("#pageWorkout", {transition: 'fade'});
+}
+
+
+function deleteAction(planId){
+    var options = [planId];
+    deleteDetail(planId);
+    function callback() {
+        console.log("Delete successfully.");
+    }
+    Action.deletePlanAction(options,callback);
+}
+
+function deleteDetail(planId){
+    var options = [planId];
+    function callback() {
+        console.log("Delete successfully.");
+    }
+    Detail.deletePlanDetail(options,callback);
 }
 
 
@@ -496,64 +552,42 @@ function showActionDetail() {
 }
 
 function saveCurrentRecord() {
-    var set = $("#txtSet").val();
-    var weight = $("#txtWeight").val();
-    var rep = $("#txtRep").val();
-    var timeLength = $("#txtTimeLength").val();
-    var actionId = localStorage.getItem("actionId");
-    var date = $("#exerciseDate").val();
-    var options = [];
-    var userId = localStorage.getItem("userId");
-    if (timeLength == "") {
-        options = [date, weight, rep, null, actionId, userId];
+    if (doValidate_frmStrengthDetail()) {
+        var set = $("#txtSet").val();
+        var weight = $("#txtWeight").val();
+        var rep = $("#txtRep").val();
+        var timeLength = $("#txtTimeLength").val();
+        var actionId = localStorage.getItem("actionId");
+        var date = $("#exerciseDate").val();
+        var options = [];
+        var userId = localStorage.getItem("userId");
+        if (timeLength == "") {
+            options = [date, weight, rep, null, actionId, userId];
+        }
+        else {
+            options = [date, null, null, timeLength, actionId, userId];
+        }
+
+        function callback() {
+            alert("Record has been saved");
+            console.info("Success: Record inserted successfully");
+        }
+
+        Detail.insert(options, callback);
+
+
+        //reset the inout box
+        set++;
+        $("#txtSet").val(set);
+        $("#txtTimeLength").val("");
+        $("#txtRep").val("");
+        $("#txtWeight").val("");
+        $("#exerciseDate").val("");
     }
     else {
-        options = [date, null, null, timeLength, actionId, userId];
+        console.error("Validation error");
     }
 
-    function callback() {
-        alert("Record has been saved");
-        console.info("Success: Record inserted successfully");
-    }
-
-    Detail.insert(options, callback);
-
-
-    //reset the inout box
-    set++;
-    $("#txtSet").val(set);
-    $("#txtTimeLength").val("");
-    $("#txtRep").val("");
-    $("#txtWeight").val("");
-    $("#exerciseDate").val("");
-}
-
-function ds() {
-    var htmlcode = "";
-    var currectDetail = $("#divCurrentDetail");
-
-    htmlcode = currectDetail.html() + "<p>" +
-        "set: " + set + " &nbsp " +
-        "weight: " + weight + "lb" + " &nbsp " +
-        "rep: " + rep + " &nbsp " +
-        "<a data-type='button' id='btnEditDetial' href='#' data-row-id='" + set + "'>Edit</a>" +
-        "</p>";
-    currectDetail.html(htmlcode);
-
-    $("#divCurrentDetail a").on("click", clickHandler);
-
-    function clickHandler() {
-        localStorage.setItem("setId", $(this).attr("data-row-id"));
-        $("#detailModify").show();
-        var setId = localStorage.getItem("setId");
-        var editDetail = localStorage.getItem("set:" + setId).split(",");
-        $("#txtSetModify").val(setId);
-        $("#txtWeightModify").val(editDetail[0]);
-        $("#txtRepmodify").val(editDetail[1]);
-    }
-
-    set++;
-    $("#txtSet").val(set);
 }
 
 function showAllHistory() {
@@ -644,26 +678,29 @@ function deleteCurrentAction() {
 }
 
 function updateCurrentDetail() {
-    var id = localStorage.getItem("detailId");
-    var weight = $("#txtWeightModify").val();
-    var rep = $("#txtRepModify").val();
-    var timeLength = $("#txtTimeLengthModify").val();
-    var date = $("#exerciseDateModify").val();
-    var actionId = localStorage.getItem("actionId");
-    var options = [];
-    if (timeLength == "") {
-        options = [date, weight, rep, null, actionId, id];
-    }
-    else {
-        options = [date, null, null, timeLength, actionId, id];
-    }
+    if (doValidate_frmStrengthDetailModify()) {
+        var id = localStorage.getItem("detailId");
+        var weight = $("#txtWeightModify").val();
+        var rep = $("#txtRepModify").val();
+        var timeLength = $("#txtTimeLengthModify").val();
+        var date = $("#exerciseDateModify").val();
+        var actionId = localStorage.getItem("actionId");
+        var options = [];
+        if (timeLength == "") {
+            options = [date, weight, rep, null, actionId, id];
+        }
+        else {
+            options = [date, null, null, timeLength, actionId, id];
+        }
 
-    function callback() {
-        alert("detail updated successfully.");
-    }
+        function callback() {
+            alert("detail updated successfully.");
+        }
 
-    Detail.update(options, callback);
-    $.mobile.changePage("#pageHistory", {transiton: 'none'});
+        Detail.update(options, callback);
+        $.mobile.changePage("#pageHistory", {transiton: 'none'});
+    }
+    console.error("valiation error");
 }
 
 //About page
